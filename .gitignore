@@ -1,0 +1,10 @@
+node_modules
+dist
+.netlify
+.DS_Store
+.env
+.env.*
+!.env.example
+*.zip
+_asset-archive
+testfile

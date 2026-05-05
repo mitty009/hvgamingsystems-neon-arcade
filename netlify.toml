@@ -1,0 +1,14 @@
+[build]
+  command = "pnpm build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Mailgun values are runtime secrets for the contact Netlify Function.
+# Set MAILGUN_API_KEY, MAILGUN_API_BASE, MAILGUN_DOMAIN, CONTACT_TO, and
+# CONTACT_FROM in the Netlify UI/CLI/API with the Functions scope.
