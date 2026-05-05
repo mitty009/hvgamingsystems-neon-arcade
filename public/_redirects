@@ -2,4 +2,9 @@ https://www.hvgamingsystems.com.au/* https://hvgamingsystems.com.au/:splat 301!
 http://hvgamingsystems.com.au/* https://hvgamingsystems.com.au/:splat 301!
 http://www.hvgamingsystems.com.au/* https://hvgamingsystems.com.au/:splat 301!
 
+/ page_id=53 /#contact 301!
+/ page_id=65 /#about 301!
+/ page_id=80 /#gallery 301!
+/ page_id=94 /#services 301!
+
 /* /index.html 200

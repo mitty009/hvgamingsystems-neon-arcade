@@ -91,22 +91,22 @@ function SectionShell({
 }) {
   const tones: Record<string, string> = {
     violet:
-      'bg-[linear-gradient(180deg,#20133b_0%,#130d26_52%,#090a12_100%)] before:bg-[linear-gradient(90deg,rgba(176,102,255,0.78),rgba(176,102,255,0.08),transparent)] after:bg-[radial-gradient(ellipse_at_18%_0%,rgba(176,102,255,0.24),transparent_48%)]',
+      'after:bg-[linear-gradient(135deg,rgba(142,40,222,0.18),rgba(47,216,255,0.05)_44%,transparent_76%)]',
     pink:
-      'bg-[linear-gradient(180deg,#2b1026_0%,#170a19_52%,#09090f_100%)] before:bg-[linear-gradient(90deg,rgba(255,64,176,0.78),rgba(255,64,176,0.08),transparent)] after:bg-[radial-gradient(ellipse_at_82%_0%,rgba(255,64,176,0.23),transparent_48%)]',
+      'after:bg-[linear-gradient(135deg,rgba(255,0,146,0.14),rgba(142,40,222,0.07)_48%,transparent_78%)]',
     cyan:
-      'bg-[linear-gradient(180deg,#0d2630_0%,#0a1720_52%,#070a10_100%)] before:bg-[linear-gradient(90deg,rgba(75,214,255,0.78),rgba(75,214,255,0.08),transparent)] after:bg-[radial-gradient(ellipse_at_50%_0%,rgba(75,214,255,0.21),transparent_50%)]',
+      'after:bg-[linear-gradient(135deg,rgba(75,214,255,0.13),rgba(26,57,72,0.08)_48%,transparent_80%)]',
     mixed:
-      'bg-[linear-gradient(180deg,#19142b_0%,#100e1f_48%,#070910_100%)] before:bg-[linear-gradient(90deg,rgba(255,64,176,0.66),rgba(75,214,255,0.46),rgba(176,102,255,0.08),transparent)] after:bg-[radial-gradient(ellipse_at_22%_0%,rgba(176,102,255,0.18),transparent_42%),radial-gradient(ellipse_at_78%_0%,rgba(255,64,176,0.16),transparent_42%)]',
+      'after:bg-[linear-gradient(135deg,rgba(255,0,146,0.12),rgba(75,214,255,0.08)_42%,rgba(142,40,222,0.12)_74%,transparent_100%)]',
     dark:
-      'bg-[linear-gradient(180deg,#121620_0%,#0b0f18_52%,#06080d_100%)] before:bg-[linear-gradient(90deg,rgba(255,255,255,0.26),rgba(255,255,255,0.05),transparent)] after:bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,255,255,0.08),transparent_50%)]',
+      'after:bg-[linear-gradient(135deg,rgba(255,255,255,0.035),rgba(75,214,255,0.035)_52%,transparent_82%)]',
   };
 
   return (
     <section
       id={id}
       className={cn(
-        'relative isolate overflow-hidden border-t border-white/8 px-6 py-18 before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:z-[1] before:h-[2px] after:pointer-events-none after:absolute after:inset-0 after:z-0 sm:py-22 lg:px-8 lg:py-24',
+        '-mt-px relative isolate overflow-hidden bg-transparent px-6 py-18 after:pointer-events-none after:absolute after:inset-0 after:z-0 after:[mask-image:linear-gradient(180deg,transparent,black_16%,black_84%,transparent)] sm:py-22 lg:px-8 lg:py-24',
         tones[tone],
         className,
       )}
@@ -179,10 +179,9 @@ export default function App() {
     <div className="min-h-screen bg-[#05060a] text-white">
       <Loader visible={!loaded} />
 
-      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <div className="absolute left-[-14%] top-[-10%] h-[36rem] w-[36rem] rounded-full bg-[#8e28de]/11 blur-[150px]" />
-        <div className="absolute bottom-[-14%] right-[-10%] h-[34rem] w-[34rem] rounded-full bg-[#ff0092]/10 blur-[150px]" />
-        <div className="absolute left-1/2 top-[18%] h-[22rem] w-[22rem] -translate-x-1/2 rounded-full bg-[#2fd8ff]/6 blur-[130px]" />
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[#05060a]">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#05060a_0%,#090b13_28%,#070911_58%,#0a0d15_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(255,0,146,0.08),transparent_32%,rgba(75,214,255,0.06)_60%,rgba(142,40,222,0.07)_100%)]" />
         <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:84px_84px]" />
       </div>
 
