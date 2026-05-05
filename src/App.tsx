@@ -20,6 +20,7 @@ import {
   stats,
   venueOutcomes,
 } from './data/site';
+import seoPages from './data/seo-pages.json';
 import { cn, scrollToId } from './lib/utils';
 
 const navItems = [
@@ -578,6 +579,33 @@ export default function App() {
                     </div>
                   </div>
                 </GlowCard>
+              ))}
+            </div>
+          </div>
+        </SectionShell>
+
+        <SectionShell tone="violet">
+          <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
+            <SectionHeading
+              eyebrow="Venue solutions"
+              title="Start with the service that matches your venue."
+              text="Browse focused options for arcade machines, pool tables, leasing, prize attractions and maintenance support across Albury-Wodonga, the Murray and the Riverina."
+            />
+            <div className="grid gap-4 sm:grid-cols-2">
+              {seoPages.map((page) => (
+                <a
+                  key={page.slug}
+                  href={`/${page.slug}/`}
+                  className="group rounded-[24px] border border-white/10 bg-[linear-gradient(180deg,rgba(20,17,34,0.88),rgba(7,9,15,0.98))] p-5 shadow-[0_18px_62px_rgba(0,0,0,0.3)] transition duration-300 hover:-translate-y-1 hover:border-[#a05cff]/34 hover:bg-[linear-gradient(180deg,rgba(38,24,62,0.9),rgba(7,9,15,0.98))]"
+                >
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#ff8ccf]">
+                    {page.eyebrow}
+                  </p>
+                  <h3 className="mt-3 text-xl font-semibold text-white transition group-hover:text-cyan-100">
+                    {page.shortTitle}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-300">{page.metaDescription}</p>
+                </a>
               ))}
             </div>
           </div>
