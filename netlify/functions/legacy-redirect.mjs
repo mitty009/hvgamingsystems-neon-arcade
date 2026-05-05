@@ -1,8 +1,8 @@
-const pageAnchors = {
-  53: 'contact',
-  65: 'about',
-  80: 'gallery',
-  94: 'services',
+const pageTargets = {
+  53: { path: '/contact', anchor: 'contact' },
+  65: { path: '/about', anchor: 'about' },
+  80: { path: '/gallery', anchor: 'gallery' },
+  94: { path: '/services', anchor: 'services' },
 };
 
 function cleanBaseUrl(event) {
@@ -13,8 +13,10 @@ function cleanBaseUrl(event) {
 
 export async function handler(event) {
   const pageId = event.queryStringParameters?.page_id;
-  const anchor = pageAnchors[pageId];
-  const location = anchor ? `${cleanBaseUrl(event)}/#${anchor}` : `${cleanBaseUrl(event)}/`;
+  const target = pageTargets[pageId];
+  const location = target
+    ? `${cleanBaseUrl(event)}${target.path}#${target.anchor}`
+    : `${cleanBaseUrl(event)}/`;
 
   return {
     statusCode: 301,
