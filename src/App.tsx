@@ -286,16 +286,6 @@ export default function App() {
             Contact Us
           </a> */}
 
-
-
-
-
-
-
-
-
-
-          
         </div>
       </motion.div>
     </div>
@@ -314,37 +304,7 @@ export default function App() {
   </section>
 </section>
 
-        <SectionShell tone="mixed" className="pt-8 sm:pt-10 lg:pt-12">
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {highlights.map((item) => (
-              <GlowCard key={item.label} className={cn('p-5 text-left', item.value === 'Arcade machines' ? 'border-[#a05cff]/22 bg-[linear-gradient(180deg,rgba(38,20,64,0.94),rgba(14,10,28,0.98))]' : item.value === 'Pool tables' ? 'border-cyan-300/22 bg-[linear-gradient(180deg,rgba(12,40,49,0.94),rgba(7,16,22,0.98))]' : item.value === 'Leasing & profit-share' ? 'border-[#ff5ab7]/22 bg-[linear-gradient(180deg,rgba(48,14,34,0.94),rgba(17,9,17,0.98))]' : 'border-white/16 bg-[linear-gradient(180deg,rgba(26,34,55,0.94),rgba(8,13,24,0.98))]')}>
-                <p className="font-display text-lg uppercase tracking-[0.14em] text-white">{item.value}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-300">{item.label}</p>
-              </GlowCard>
-            ))}
-          </div>
-        </SectionShell>
 
-        <SectionShell tone="cyan">
-          <div className="rounded-[32px] border border-cyan-300/18 bg-[linear-gradient(180deg,rgba(16,48,60,0.9),rgba(10,18,28,0.96))] p-6 shadow-[0_0_90px_rgba(47,216,255,0.12)] backdrop-blur-xl lg:p-8">
-            <div className="grid gap-6 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
-              <div>
-                <p className="text-sm uppercase tracking-[0.3em] text-cyan-300">Who we work with</p>
-                <p className="mt-3 max-w-xl text-lg leading-7 text-slate-300">
-                  Hotels, clubs, holiday parks and entertainment venues can add machines that feel at home in the room and give guests a reason to stay longer.
-                </p>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-                {sectors.map((sector) => (
-                  <div key={sector.title} className="rounded-[24px] border border-cyan-300/22 bg-[linear-gradient(180deg,rgba(16,38,48,0.92),rgba(7,14,22,0.98))] px-5 py-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_0_50px_rgba(47,216,255,0.1)]">
-                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white">{sector.title}</p>
-                    <p className="mt-3 text-sm leading-6 text-slate-300">{sector.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </SectionShell>
 
         <SectionShell tone="dark">
           <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
