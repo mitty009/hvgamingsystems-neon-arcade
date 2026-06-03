@@ -153,12 +153,12 @@ export const categories: Category[] = [
   {
     title: 'Air hockey and social play',
     description: 'Fast-start games for guests who want something quick, social and easy to join.',
-    image: '/assets/gallery/curated/air-hockey-table-detail.webp',
+    image: '/assets/gallery/curated/air-hockey-table-detail.jpg',
   },
   {
     title: 'Pool tables',
     description: 'A familiar drawcard for pubs, clubs, accommodation venues and social spaces.',
-    image: '/assets/gallery/curated/pool-table-graffiti.webp',
+    image: '/assets/gallery/curated/pool-table.jpg',
   },
   {
     title: 'Claw and skill testers',
@@ -253,7 +253,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     title: 'Air hockey for fast turnover',
-    image: '/assets/gallery/curated/air-hockey-table-detail.webp',
+    image: '/assets/gallery/curated/air-hockey-table-detail.jpg',
     tag: 'Quick play',
     blurb:
       'Short games, quick turns and no learning curve make air hockey a strong fit near food, drinks and social seating.',
@@ -279,7 +279,7 @@ export const galleryItems: GalleryItem[] = [
 
 export const venueOutcomes: ContentItem[] = [
   {
-    title: 'Longer dwell time',
+    title: 'Longer customer stay',
     description: 'Give guests a reason to stay after they have eaten, checked in or finished the main activity.',
   },
   {
