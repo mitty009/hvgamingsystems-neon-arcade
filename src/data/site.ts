@@ -245,7 +245,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     title: 'Pool tables as the social anchor',
-    image: '/assets/gallery/curated/pool-table-graffiti.webp',
+    image: '/assets/gallery/curated/pool-table-graffiti.jpg',
     tag: 'Pool table',
     blurb:
       'A familiar longer-form game for pubs, clubs and accommodation venues where guests naturally gather in groups.',
