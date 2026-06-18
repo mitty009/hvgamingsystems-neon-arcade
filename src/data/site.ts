@@ -61,6 +61,11 @@ export type ContentItem = {
   description: string;
 };
 
+export type VenueProof = {
+  title: string;
+  location: string;
+};
+
 export type Faq = {
   question: string;
   answer: string;
@@ -73,20 +78,20 @@ export const site = {
   region: 'Murray / Riverina region',
   heroTitle: 'Arcade machines, pool tables and venue-ready entertainment for hospitality, tourism and leisure spaces across the Murray and Riverina.',
   heroText:
-    'High Voltage Gaming Systems helps venues build a stronger games offering with eye-catching machines, dependable support and commercial options that suit the space.',
+    'High Voltage Gaming Systems helps venues build a stronger games offering with eye-catching machines, dependable support and zero-upfront-cost placement options for suitable sites.',
   ctaPrimary: 'Contact us',
   ctaSecondary: 'View our range',
   aboutTitle: 'Veteran-owned, regionally focused and serious about keeping venues moving.',
   aboutText:
     'High Voltage Gaming Systems works with hotels, clubs, holiday parks and entertainment venues across the Murray and Riverina. From the first conversation through to servicing, the focus is simple: the right machines for the room, a clean install and reliable support when the venue needs it.',
   footerBlurb:
-    'Arcade machines, pool tables, prize attractions, leasing options and technical support for hospitality, tourism and entertainment venues across the Murray / Riverina region.',
+    'Arcade machines, pool tables, prize attractions, zero-upfront-cost placement options and technical support for hospitality, tourism and entertainment venues across the Murray / Riverina region.',
 };
 
 export const highlights: Highlight[] = [
   { value: 'Arcade machines', label: 'High-impact cabinets that turn quiet floor space into active entertainment' },
   { value: 'Pool tables', label: 'Commercial tables for pubs, clubs, parks and social venues' },
-  { value: 'Leasing & profit-share', label: 'Commercial options that reduce upfront pressure for operators' },
+  { value: 'Zero upfront', label: 'Placement options for suitable venues without an initial machine purchase' },
   { value: 'Qualified support', label: 'Technical backup to keep equipment presentable and operating' },
 ];
 
@@ -104,9 +109,9 @@ export const services: Service[] = [
     icon: Trophy,
   },
   {
-    title: 'Leasing and profit-sharing',
+    title: 'Zero-upfront-cost placements',
     description:
-      'Flexible commercial pathways for venues that want a stronger entertainment offer without buying every piece outright.',
+      'Leasing and profit-share pathways for suitable venues that want a stronger entertainment offer without buying every machine upfront.',
     icon: HandCoins,
   },
   {
@@ -133,7 +138,7 @@ export const differentiators: Service[] = [
   {
     title: 'Qualified technical team',
     description:
-      'Electronic technicians and engineers give each placement real backup beyond sales and delivery.',
+      'Electronic technicians and engineers give each placement real backup beyond delivery and setup.',
     icon: Cable,
   },
   {
@@ -158,7 +163,7 @@ export const categories: Category[] = [
   {
     title: 'Pool tables',
     description: 'A familiar drawcard for pubs, clubs, accommodation venues and social spaces.',
-    image: '/assets/gallery/curated/pool-table.jpg',
+    image: '/assets/gallery/curated/pool-table-graffiti.jpg',
   },
   {
     title: 'Claw and skill testers',
@@ -189,7 +194,7 @@ export const sectors: Sector[] = [
 export const stats: Stat[] = [
   { value: 'Arcade', label: 'Machine supply' },
   { value: 'Pool', label: 'Tables & games' },
-  { value: 'Flexible', label: 'Leasing models' },
+  { value: 'Flexible', label: 'Zero-upfront options' },
   { value: 'Regional', label: 'Service support' },
 ];
 
@@ -302,18 +307,34 @@ export const serviceAreas: ContentItem[] = [
     description: 'Support for hotels, clubs, pubs, parks and entertainment venues across the border region.',
   },
   {
-    title: 'Murray region',
-    description: 'Arcade machines, pool tables and amusement equipment for venues along the Murray corridor.',
+    title: 'Murray and Riverina',
+    description: 'Arcade machines, pool tables and amusement equipment for venues across the Murray corridor and wider Riverina.',
   },
   {
-    title: 'Riverina operators',
-    description: 'Entertainment equipment and technical backup for tourism, hospitality and leisure spaces across the wider Riverina.',
+    title: 'Wider regional radius',
+    description: 'Priority coverage within roughly 300 km, with suitable regional enquiries handled directly or referred through trusted partners.',
   },
+];
+
+export const venueProof: VenueProof[] = [
+  { title: 'Aussie Hotel Shepparton', location: 'Shepparton' },
+  { title: 'Beer DeLuxe Albury', location: 'Albury' },
+  { title: 'Blazing Stump Hotel', location: 'Wodonga' },
+  { title: 'Boomerang Hotel', location: 'Lavington' },
+  { title: 'Bundalong Pub', location: 'Bundalong' },
+  { title: 'Boathaven', location: 'Murray region' },
+  { title: 'Eddies Tavern', location: 'regional venue' },
+  { title: 'Empire Hotel', location: 'regional venue' },
+  { title: 'Globe Hotel', location: 'regional venue' },
+  { title: 'Great Aussie Resort', location: 'regional accommodation' },
+  { title: 'Huon Hill Hotel', location: 'Wodonga' },
+  { title: 'Peppermill Inn', location: 'Shepparton' },
+  { title: 'Siesta Resort', location: 'Albury' },
 ];
 
 export const enquiryTypes = [
   'New venue setup',
-  'Leasing or profit-share',
+  'Zero-upfront-cost placement',
   'Pool tables',
   'Repairs and maintenance',
   'General enquiry',
@@ -323,7 +344,7 @@ export const faqs: Faq[] = [
   {
     question: 'Do you offer leasing or profit-share arrangements?',
     answer:
-      'Yes. Commercial options can be discussed around the venue, floor space, expected traffic and equipment mix.',
+      'Yes. Suitable venues can discuss zero-upfront-cost placements, leasing-style options or profit-share arrangements around the floor space, expected traffic and equipment mix.',
   },
   {
     question: 'Do you help choose the right machines for a venue?',
@@ -338,7 +359,7 @@ export const faqs: Faq[] = [
   {
     question: 'What areas do you cover?',
     answer:
-      'The business supports the Murray and Riverina region, including Albury-Wodonga and surrounding hospitality, tourism and entertainment venues.',
+      'The business focuses on Albury-Wodonga, the Murray and the Riverina, with suitable enquiries considered across roughly a 300 km regional radius.',
   },
   {
     question: 'Can you supply pool tables as well as arcade machines?',

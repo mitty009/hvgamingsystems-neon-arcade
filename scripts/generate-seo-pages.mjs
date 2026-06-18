@@ -21,8 +21,37 @@ function escapeHtml(value) {
     .replaceAll("'", '&#39;');
 }
 
+function cleanGenerated(value) {
+  return value.replace(/[ \t]+$/gm, '');
+}
+
 function listItems(items) {
   return items.map((item) => `<li>${escapeHtml(item)}</li>`).join('\n');
+}
+
+function optionalAreaGroups(page) {
+  if (!page.areaGroups?.length) return '';
+
+  return `<section class="grid three" aria-label="Regional coverage">
+          ${page.areaGroups
+            .map(
+              (group) => `<article class="card">
+            <h3>${escapeHtml(group.title)}</h3>
+            <ul>${listItems(group.areas)}</ul>
+          </article>`,
+            )
+            .join('\n')}
+        </section>`;
+}
+
+function optionalVenueExamples(page) {
+  if (!page.venueExamples?.length) return '';
+
+  return `<section class="card" aria-label="Venue examples">
+          <h2>Venue experience</h2>
+          <p>Examples include regional hotels, pubs, resorts and hospitality venues where amusement equipment, pool tables or games-room attractions are part of the venue experience.</p>
+          <div class="links">${page.venueExamples.map((venue) => `<span>${escapeHtml(venue)}</span>`).join('\n')}</div>
+        </section>`;
 }
 
 function landingLinks(currentSlug) {
@@ -139,8 +168,11 @@ function pageTemplate(page) {
     <meta name="twitter:title" content="${escapeHtml(page.metaTitle)}" />
     <meta name="twitter:description" content="${escapeHtml(page.metaDescription)}" />
     <meta name="twitter:image" content="${siteUrl}${page.image}" />
-    <link rel="icon" type="image/png" href="/assets/hv/logo-primary.png" />
-    <link rel="apple-touch-icon" href="/assets/hv/logo-primary.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <script type="application/ld+json">${jsonLdFor(page)}</script>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600;700&display=swap');
@@ -180,7 +212,7 @@ function pageTemplate(page) {
       ul { margin: 0; padding-left: 1.2rem; }
       li + li { margin-top: 8px; }
       .links { display: flex; flex-wrap: wrap; gap: 10px; }
-      .links a { border: 1px solid rgba(75,214,255,.24); border-radius: 999px; background: rgba(75,214,255,.09); padding: 10px 13px; color: #d9f8ff; font-size: 13px; font-weight: 700; text-decoration: none; }
+      .links a, .links span { border: 1px solid rgba(75,214,255,.24); border-radius: 999px; background: rgba(75,214,255,.09); padding: 10px 13px; color: #d9f8ff; font-size: 13px; font-weight: 700; text-decoration: none; }
       footer { border-top: 1px solid rgba(255,255,255,.08); margin-top: 44px; padding: 28px 0 34px; color: rgba(148,163,184,.9); font-size: 13px; }
       @media (min-width: 920px) { .hero { grid-template-columns: 1.03fr .97fr; padding: 76px 0 56px; } }
       @media (max-width: 780px) { .nav { align-items: flex-start; flex-direction: column; } .three, .two { grid-template-columns: 1fr; } .wrap { width: min(100% - 28px, 1120px); } }
@@ -245,6 +277,10 @@ function pageTemplate(page) {
           </article>
         </section>
 
+        ${optionalAreaGroups(page)}
+
+        ${optionalVenueExamples(page)}
+
         <section class="card">
           <h2>Related local services</h2>
           <div class="links">${links}</div>
@@ -264,7 +300,7 @@ function pageTemplate(page) {
 for (const page of pages) {
   const outDir = resolve(publicDir, page.slug);
   await mkdir(outDir, { recursive: true });
-  await writeFile(resolve(outDir, 'index.html'), pageTemplate(page), 'utf8');
+  await writeFile(resolve(outDir, 'index.html'), cleanGenerated(pageTemplate(page)), 'utf8');
 }
 
 const sitemapUrls = [
@@ -293,6 +329,6 @@ ${sitemapUrls
 </urlset>
 `;
 
-await writeFile(resolve(publicDir, 'sitemap.xml'), sitemap, 'utf8');
+await writeFile(resolve(publicDir, 'sitemap.xml'), cleanGenerated(sitemap), 'utf8');
 
 console.log(`Generated ${pages.length} SEO landing pages and sitemap.xml`);

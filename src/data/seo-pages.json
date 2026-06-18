@@ -11,7 +11,7 @@
     "image": "/assets/gallery/curated/venue-games-lineup.webp",
     "primaryAreas": ["Albury", "Wodonga", "Lavington", "Thurgoona", "West Wodonga"],
     "bestFor": ["Hotels and pubs", "Clubs and social venues", "Entertainment rooms", "Tourism venues"],
-    "services": ["Arcade machine supply", "Leasing and profit-share options", "Machine mix recommendations", "Installation and ongoing maintenance"],
+    "services": ["Arcade machine supply", "Zero-upfront-cost placement options", "Machine mix recommendations", "Installation and ongoing maintenance"],
     "outcomes": ["More energy on quiet floor space", "Better entertainment for groups and families", "Machines chosen to suit the venue, not a generic catalogue"],
     "faqs": [
       {
@@ -19,8 +19,8 @@
         "answer": "Yes. Recommendations can be built around the available footprint, traffic flow and the type of guests the venue already attracts."
       },
       {
-        "question": "Do you offer arcade machine leasing in Albury Wodonga?",
-        "answer": "Leasing and profit-share options can be discussed for suitable venues, depending on the equipment mix and commercial arrangement."
+        "question": "Do you offer zero-upfront-cost arcade machine placements in Albury Wodonga?",
+        "answer": "Zero-upfront-cost placement and profit-share options can be discussed for suitable venues, depending on the equipment mix, floor space and commercial arrangement."
       }
     ]
   },
@@ -28,19 +28,19 @@
     "slug": "amusement-machine-leasing-riverina",
     "title": "Amusement Machine Leasing Across the Riverina",
     "shortTitle": "Amusement machine leasing Riverina",
-    "metaTitle": "Amusement Machine Leasing Riverina | HV Gaming Systems",
-    "metaDescription": "Flexible amusement machine leasing and profit-share options for Riverina hospitality, tourism and entertainment venues.",
-    "eyebrow": "Leasing options",
-    "hero": "Commercial amusement machines without every venue needing to buy outright.",
-    "intro": "For Riverina operators, leasing and profit-share arrangements can make it easier to test, expand or refresh a games area with equipment that fits the space and audience.",
+    "metaTitle": "Zero-Upfront Amusement Machine Placements Riverina | High Voltage Gaming Systems",
+    "metaDescription": "Zero-upfront-cost amusement machine placements and profit-share options for Riverina hospitality, tourism and entertainment venues.",
+    "eyebrow": "Zero-upfront placements",
+    "hero": "Commercial amusement machines without every suitable venue needing to buy outright.",
+    "intro": "For Riverina operators, zero-upfront-cost placements and profit-share arrangements can make it easier to test, expand or refresh a games area with equipment that fits the space and audience.",
     "image": "/assets/gallery/curated/prize-machine-lineup.webp",
     "primaryAreas": ["Riverina", "Wagga Wagga region", "Murray corridor", "Albury Wodonga", "Regional NSW venues"],
     "bestFor": ["Pubs and clubs", "Accommodation venues", "Holiday parks", "Family entertainment spaces"],
-    "services": ["Arcade and prize machine leasing", "Profit-share placements", "Equipment recommendations", "Servicing and maintenance support"],
-    "outcomes": ["Lower upfront pressure", "A practical way to refresh the venue", "A games mix that can be matched to guest behaviour"],
+    "services": ["Zero-upfront-cost arcade placements", "Profit-share arrangements", "Equipment recommendations", "Servicing and maintenance support"],
+    "outcomes": ["No upfront machine purchase for suitable venues", "A practical way to refresh the venue", "A games mix that can be matched to guest behaviour"],
     "faqs": [
       {
-        "question": "What leasing options are available?",
+        "question": "What zero-upfront-cost placement options are available?",
         "answer": "Options depend on the venue, machines, expected traffic and operating model. High Voltage Gaming Systems can talk through the right pathway before anything is placed."
       },
       {
@@ -78,7 +78,7 @@
     "slug": "arcade-machines-for-pubs-clubs",
     "title": "Arcade Machines for Pubs and Clubs",
     "shortTitle": "Arcade machines for pubs and clubs",
-    "metaTitle": "Arcade Machines for Pubs & Clubs | HV Gaming Systems",
+    "metaTitle": "Arcade Machines for Pubs & Clubs | High Voltage Gaming Systems",
     "metaDescription": "Arcade machines, pool tables and amusement equipment for pubs and clubs across the Murray and Riverina region.",
     "eyebrow": "Hospitality venues",
     "hero": "Turn unused corners and quiet walls into an active part of the venue.",
@@ -86,7 +86,7 @@
     "image": "/assets/gallery/curated/cactus-arcade-entry.webp",
     "primaryAreas": ["Murray region", "Riverina region", "Albury Wodonga", "Regional hospitality venues"],
     "bestFor": ["Pubs", "Clubs", "Sports bars", "Social venues"],
-    "services": ["Arcade cabinets", "Pool tables", "Prize and skill machines", "Maintenance and repairs"],
+    "services": ["Arcade cabinets", "Pool tables", "Prize and skill machines", "Zero-upfront-cost placements", "Maintenance and repairs"],
     "outcomes": ["More reasons to stay after a meal or drink", "Better use of underperforming floor space", "A stronger social atmosphere for groups"],
     "faqs": [
       {
@@ -103,7 +103,7 @@
     "slug": "arcade-machines-for-holiday-parks",
     "title": "Arcade Machines for Holiday Parks and Accommodation Venues",
     "shortTitle": "Arcade machines for holiday parks",
-    "metaTitle": "Arcade Machines for Holiday Parks | HV Gaming Systems",
+    "metaTitle": "Arcade Machines for Holiday Parks | High Voltage Gaming Systems",
     "metaDescription": "Family-friendly arcade machines, prize attractions and social games for holiday parks and accommodation venues across the Murray and Riverina.",
     "eyebrow": "Tourism venues",
     "hero": "A games room guests can return to throughout their stay.",
@@ -128,7 +128,7 @@
     "slug": "claw-prize-machines-murray-riverina",
     "title": "Claw and Prize Machines for Murray Riverina Venues",
     "shortTitle": "Claw and prize machines Murray Riverina",
-    "metaTitle": "Claw & Prize Machines Murray Riverina | HV Gaming Systems",
+    "metaTitle": "Claw & Prize Machines Murray Riverina | High Voltage Gaming Systems",
     "metaDescription": "Claw machines, prize attractions and skill testers for hospitality, tourism and entertainment venues across the Murray and Riverina.",
     "eyebrow": "Prize attractions",
     "hero": "Bright, approachable prize machines that create repeat play for families and groups.",
@@ -136,7 +136,7 @@
     "image": "/assets/gallery/curated/claw-prize-bank.webp",
     "primaryAreas": ["Murray region", "Riverina region", "Albury Wodonga", "Regional NSW and Victoria venues"],
     "bestFor": ["Holiday parks", "Family venues", "Pubs and clubs", "Entertainment rooms"],
-    "services": ["Claw machines", "Prize machines", "Skill testers", "Placement and servicing support"],
+    "services": ["Claw machines", "Prize machines", "Skill testers", "Zero-upfront-cost placement options", "Placement and servicing support"],
     "outcomes": ["More visual colour in the venue", "Family-friendly repeat play", "A low-learning-curve attraction guests understand instantly"],
     "faqs": [
       {
@@ -150,10 +150,54 @@
     ]
   },
   {
+    "slug": "service-areas",
+    "title": "Service Areas for Arcade Machines, Pool Tables and Amusement Equipment",
+    "shortTitle": "Service areas",
+    "metaTitle": "Arcade Machine Service Areas NSW & VIC | High Voltage Gaming Systems",
+    "metaDescription": "Arcade machines, pool tables, prize attractions and zero-upfront-cost placement options across Albury-Wodonga, the Murray, Riverina and wider regional NSW/VIC.",
+    "eyebrow": "300 km regional radius",
+    "hero": "Regional arcade machine, pool table and amusement equipment support from the border to the wider Murray and Riverina.",
+    "intro": "High Voltage Gaming Systems focuses on Albury-Wodonga, the Murray and the Riverina, while considering suitable hospitality, tourism and entertainment venue enquiries across roughly a 300 km regional radius.",
+    "image": "/assets/gallery/curated/venue-room-perspective.webp",
+    "primaryAreas": ["Albury", "Wodonga", "Lavington", "Thurgoona", "Jindera", "Howlong", "Corowa", "Rutherglen", "Wangaratta", "Benalla", "Yarrawonga", "Mulwala", "Cobram", "Shepparton", "Mooroopna", "Kyabram", "Echuca", "Moama", "Wagga Wagga", "Junee", "Lockhart", "Gundagai", "Tumut", "Tumbarumba", "Cootamundra", "Temora", "Narrandera", "Leeton", "Griffith", "Deniliquin", "Finley", "Berrigan", "Jerilderie", "Tocumwal", "Bright", "Myrtleford", "Mount Beauty", "Seymour", "Euroa", "Mansfield", "Bendigo", "Canberra"],
+    "bestFor": ["Pubs and hotels", "Clubs and social venues", "Holiday parks and resorts", "Accommodation venues", "Family entertainment spaces"],
+    "services": ["Arcade machine supply", "Pool table supply", "Claw, prize and skill machines", "Zero-upfront-cost placements", "Profit-share arrangements", "Installation, servicing and maintenance"],
+    "outcomes": ["Clear regional coverage for venue operators across southern NSW and northern Victoria", "A practical pathway for direct installs or trusted partner referral", "Equipment recommendations matched to the venue type, audience and available floor space"],
+    "areaGroups": [
+      {
+        "title": "Border and Upper Murray",
+        "areas": ["Albury", "Wodonga", "Lavington", "Thurgoona", "West Wodonga", "Jindera", "Howlong", "Corowa", "Rutherglen", "Yackandandah", "Beechworth", "Tallangatta", "Holbrook", "Culcairn", "Henty"]
+      },
+      {
+        "title": "Riverina and Murrumbidgee",
+        "areas": ["Wagga Wagga", "The Rock", "Lockhart", "Junee", "Gundagai", "Tumut", "Tumbarumba", "Cootamundra", "Temora", "Young", "Narrandera", "Leeton", "Griffith", "Deniliquin", "Finley", "Berrigan", "Jerilderie", "Tocumwal"]
+      },
+      {
+        "title": "North-east Victoria and wider regional centres",
+        "areas": ["Wangaratta", "Benalla", "Yarrawonga", "Mulwala", "Cobram", "Shepparton", "Mooroopna", "Numurkah", "Kyabram", "Echuca", "Moama", "Seymour", "Euroa", "Mansfield", "Myrtleford", "Bright", "Mount Beauty", "Bendigo", "Canberra"]
+      }
+    ],
+    "venueExamples": ["Aussie Hotel Shepparton", "Beer DeLuxe Albury", "Blazing Stump Hotel", "Boomerang Hotel", "Bundalong Pub", "Boathaven", "Eddies Tavern", "Empire Hotel", "Globe Hotel", "Great Aussie Resort", "Huon Hill Hotel", "Peppermill Inn", "Siesta Resort"],
+    "faqs": [
+      {
+        "question": "Do you have a public shopfront?",
+        "answer": "No. High Voltage Gaming Systems operates as a service-area business for hospitality, tourism and entertainment venues rather than a walk-in retail shopfront."
+      },
+      {
+        "question": "Can you help venues outside Albury-Wodonga?",
+        "answer": "Yes. Suitable enquiries are considered across the Murray, Riverina and wider regional NSW/VIC footprint, with partner referrals available where a venue sits outside the practical direct-service area."
+      },
+      {
+        "question": "How do you decide whether a venue is suitable?",
+        "answer": "The conversation starts with the venue type, guest profile, available floor space, expected traffic and the equipment mix most likely to work in that room."
+      }
+    ]
+  },
+  {
     "slug": "arcade-machine-maintenance-repairs",
     "title": "Arcade Machine Maintenance and Repairs",
     "shortTitle": "Arcade machine maintenance",
-    "metaTitle": "Arcade Machine Maintenance & Repairs | HV Gaming Systems",
+    "metaTitle": "Arcade Machine Maintenance & Repairs | High Voltage Gaming Systems",
     "metaDescription": "Arcade machine maintenance, repairs and technical support for hospitality, tourism and entertainment venues across the Murray and Riverina.",
     "eyebrow": "Technical support",
     "hero": "Keep machines presentable, reliable and ready for guests.",

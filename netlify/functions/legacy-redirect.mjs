@@ -1,8 +1,8 @@
 const pageTargets = {
-  53: { path: '/contact', anchor: 'contact' },
-  65: { path: '/about', anchor: 'about' },
-  80: { path: '/gallery', anchor: 'gallery' },
-  94: { path: '/services', anchor: 'services' },
+  53: { path: '/', anchor: 'contact' },
+  65: { path: '/', anchor: 'about' },
+  80: { path: '/', anchor: 'gallery' },
+  94: { path: '/', anchor: 'services' },
 };
 
 function cleanBaseUrl(event) {

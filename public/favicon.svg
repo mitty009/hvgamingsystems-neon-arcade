@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="High Voltage Gaming Systems">
+  <defs>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 1 0 0 0 0 .05 0 0 0 1 .8 0 0 0 .72 0" result="glow" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="104" fill="#05060a" />
+  <polygon points="326 24 102 296 238 296 183 488 410 202 282 202" fill="#8e28de" filter="url(#glow)" />
+  <polygon points="286 38 120 280 236 280 194 446 370 220 258 220" fill="#ff0092" />
+</svg>

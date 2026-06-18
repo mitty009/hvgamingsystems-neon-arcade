@@ -22,11 +22,13 @@
 
 ## Recommended next pass
 
-- Add final phone number if public calls are wanted.
-- Confirm ABN and whether it should appear in the footer.
+- Research whether a virtual 1800, 1300 or Albury-Wodonga landline number is worthwhile for a one-person operation, including scheduled forwarding, after-hours voicemail, voicemail-to-email and low-volume pricing.
+- Leave ABN unpublished for now.
+- Create and verify a Google Business Profile as a service-area business once the client-owned Google account is ready.
 - Add social links if High Voltage Gaming Systems has active Facebook, Instagram or LinkedIn pages.
 - Add a downloadable partner pack or brochure from the `Photos/broshure` material.
-- Add old WordPress URL redirect mapping before DNS cutover.
+- Re-check Google Search Console after deployment and validate the old WordPress `page_id` URL cleanup.
+- Use the domain property `hvgamingsystems.com.au` as the long-term Search Console master, while keeping the `https://hvgamingsystems.com.au/` URL-prefix property during the migration period.
 - Add image alt text refinements after final gallery approval.
 - Add Turnstile if spam becomes a problem beyond the current honeypot.
 - Add analytics once the domain is live.

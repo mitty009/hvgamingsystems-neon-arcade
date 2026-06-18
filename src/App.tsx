@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowRight, Mail, MapPin, Menu, X } from 'lucide-react';
+import { ArrowRight, ChevronRight, Mail, MapPin, Menu, Send, X, Zap } from 'lucide-react';
 import { GlowCard } from './components/GlowCard';
 import { Loader } from './components/Loader';
 import { SectionHeading } from './components/SectionHeading';
@@ -19,6 +19,7 @@ import {
   site,
   stats,
   venueOutcomes,
+  venueProof,
 } from './data/site';
 import seoPages from './data/seo-pages.json';
 import { cn, scrollToId } from './lib/utils';
@@ -31,6 +32,17 @@ const navItems = [
   { id: 'about', label: 'About' },
   { id: 'faq', label: 'FAQ' },
   { id: 'contact', label: 'Contact' },
+];
+
+const attractionRail = [
+  'Linked racers',
+  'Prize machines',
+  'Pool tables',
+  'Air hockey',
+  'Skill testers',
+  'Arcade cabinets',
+  'Venue support',
+  'Zero-upfront placements',
 ];
 
 function PillButton({
@@ -48,15 +60,15 @@ function PillButton({
 }) {
   const classes =
     variant === 'primary'
-      ? 'border-[#ff0092] bg-[#ff0092] text-white shadow-[0_0_45px_rgba(255,0,146,0.32)] hover:-translate-y-0.5 hover:bg-[#ff2ea7]'
-      : 'border-[#8e28de]/45 bg-[#8e28de]/16 text-white hover:-translate-y-0.5 hover:bg-[#8e28de]/26';
+      ? 'arcade-button-primary'
+      : 'arcade-button-secondary';
 
   if (href) {
     return (
       <a
         href={href}
         className={cn(
-          'inline-flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition duration-300',
+          'arcade-button inline-flex items-center justify-center gap-2 border px-5 py-3 text-sm font-bold uppercase tracking-[0.16em] transition duration-300',
           classes,
         )}
       >
@@ -70,7 +82,7 @@ function PillButton({
       type={type}
       onClick={onClick}
       className={cn(
-        'inline-flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition duration-300',
+        'arcade-button inline-flex items-center justify-center gap-2 border px-5 py-3 text-sm font-bold uppercase tracking-[0.16em] transition duration-300',
         classes,
       )}
     >
@@ -107,12 +119,12 @@ function SectionShell({
     <section
       id={id}
       className={cn(
-        '-mt-px relative isolate overflow-hidden bg-transparent px-6 py-18 after:pointer-events-none after:absolute after:inset-0 after:z-0 after:[mask-image:linear-gradient(180deg,transparent,black_16%,black_84%,transparent)] sm:py-22 lg:px-8 lg:py-24',
+        '-mt-px relative isolate overflow-hidden bg-transparent px-5 py-18 after:pointer-events-none after:absolute after:inset-0 after:z-0 after:[mask-image:linear-gradient(180deg,transparent,black_16%,black_84%,transparent)] sm:px-6 sm:py-22 lg:px-8 lg:py-26',
         tones[tone],
         className,
       )}
     >
-      <div className="relative z-10 mx-auto max-w-7xl">{children}</div>
+      <div className="relative z-10 mx-auto max-w-[92rem]">{children}</div>
     </section>
   );
 }
@@ -187,17 +199,17 @@ export default function App() {
       </div>
 
       <header className="sticky top-0 z-50 border-b border-white/8 bg-[#06070b]/72 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+        <div className="mx-auto flex max-w-[94rem] items-center justify-between px-5 py-4 lg:px-8">
           <button onClick={() => scrollToId('home')} className="flex items-center gap-4 text-left">
             <img src="/assets/hv/logo-primary.png" alt="HIGH VOLTAGE GAMING SYSTEMS" className="h-10 w-auto sm:h-11" />
           </button>
 
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav className="hidden items-center gap-2 lg:flex">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToId(item.id)}
-                className="text-sm font-medium uppercase tracking-[0.12em] text-slate-300 transition hover:text-white"
+                className="nav-chip px-3 py-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-300 transition hover:text-white"
               >
                 {item.label}
               </button>
@@ -246,80 +258,125 @@ export default function App() {
       </header>
 
       <main className="relative z-10">
-        <section id="home" className="relative overflow-hidden bg-black">
-  <div className="absolute inset-0">
-    <img
-      src="/assets/hv/hero-pin.jpeg"
-      alt="Arcade machine hero"
-      className="h-full w-full object-cover object-[center_56%] md:object-[center_54%] lg:object-[center_50%]"
-    />
-  </div>
+        <section id="home" className="relative min-h-screen overflow-hidden bg-black">
+          <div className="absolute inset-0">
+            <img
+              src="/assets/hv/hero-pin.jpeg"
+              alt="Arcade machine hero"
+              className="h-full w-full object-cover object-[center_56%] md:object-[center_54%] lg:object-[center_50%]"
+            />
+          </div>
 
-  <div className="absolute inset-0 bg-black/28" />
-  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,0,146,0.10),transparent_42%)]" />
-  <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black via-black/70 to-transparent" />
-  <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black via-black/70 to-transparent" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.86)_0%,rgba(0,0,0,0.58)_42%,rgba(0,0,0,0.18)_78%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.72),rgba(0,0,0,0.05)_42%,rgba(0,0,0,0.9)_100%)]" />
+          <div className="scanline-overlay absolute inset-0" />
 
-  <div className="relative flex min-h-screen items-center justify-center px-5 py-24 sm:py-28 lg:px-8 lg:py-32">
-    <div className="w-full max-w-5xl text-center">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 20 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="mx-auto rounded-[2rem] border border-white/12 bg-black/42 px-6 py-8 shadow-[0_0_60px_rgba(0,0,0,0.45)] sm:px-10 sm:py-10 lg:px-14 lg:py-12"
-      >
-        <h1 className="font-['Bebas_Neue'] text-5xl uppercase tracking-[0.06em] text-white sm:text-6xl lg:text-6xl">
-          High Voltage Gaming Systems
-        </h1>
+          <div className="relative flex min-h-screen items-center px-5 pb-32 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+            <div className="mx-auto grid w-full max-w-[94rem] gap-10 lg:grid-cols-[minmax(0,0.96fr)_minmax(22rem,0.52fr)] lg:items-end">
+              <motion.div
+                initial={{ opacity: 0, y: 26 }}
+                animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 26 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="max-w-5xl"
+              >
+                <div className="inline-flex items-center gap-3 border border-[#ff0092]/36 bg-black/44 px-4 py-2 text-[0.7rem] font-bold uppercase tracking-[0.32em] text-[#ff8ccf] shadow-[0_0_32px_rgba(255,0,146,0.18)] backdrop-blur">
+                  <Zap size={15} className="text-[#4bd6ff]" />
+                  Murray / Riverina venue entertainment
+                </div>
 
-        <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-white/90 sm:text-lg lg:text-xl">
-          Arcade machines, pool tables and venue-ready entertainment solutions
-          for hospitality, tourism and leisure spaces across the Murray and
-          Riverina.
-        </p>
+                <h1 className="mt-7 max-w-5xl font-display text-[clamp(4.4rem,12vw,10.8rem)] uppercase leading-[0.78] tracking-[0.025em] text-white drop-shadow-[0_0_28px_rgba(255,0,146,0.22)]">
+                  High Voltage
+                  <span className="block text-[#ff0092]">Gaming Systems</span>
+                </h1>
 
-        <div className="mt-8 flex items-center justify-center">
-          {/* <a
-            href="#contact"
-            className="inline-flex items-center justify-center rounded-full bg-[#ff1493] px-8 py-4 text-sm font-semibold uppercase tracking-[0.16em] text-white shadow-[0_0_24px_rgba(255,20,147,0.45)] transition duration-300 hover:scale-[1.02] hover:bg-[#ff2ca0]"
-          >
-            Contact Us
-          </a> */}
+                <p className="mt-7 max-w-3xl text-xl leading-8 text-white/88 sm:text-2xl sm:leading-9">
+                  Arcade machines, pool tables and zero-upfront-cost entertainment placements for venues that want more colour, more play and more reasons for guests to stay.
+                </p>
 
-        </div>
-      </motion.div>
-    </div>
-  </div>
+                <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+                  <PillButton onClick={() => scrollToId('contact')}>
+                    Start a venue enquiry
+                    <Send size={16} />
+                  </PillButton>
+                  <PillButton variant="secondary" onClick={() => scrollToId('gallery')}>
+                    See machines in venues
+                    <ChevronRight size={16} />
+                  </PillButton>
+                </div>
+              </motion.div>
 
-  <section className="relative z-10 border-t border-white/8 bg-[linear-gradient(180deg,rgba(4,5,8,0.18),rgba(4,5,8,0.72))] px-5 py-5 lg:px-8 lg:py-7">
-    <motion.p
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 12 }}
-      transition={{ duration: 0.65, delay: 0.45 }}
-      className="mx-auto max-w-6xl text-center text-xs font-semibold uppercase tracking-[0.14em] text-white/78 sm:text-sm"
-    >
-      Arcade machines, pool tables and prize attractions selected to suit each
-      venue, strengthen the entertainment offer and keep guests engaged.
-    </motion.p>
-  </section>
-</section>
+              <motion.div
+                initial={{ opacity: 0, x: 26 }}
+                animate={{ opacity: loaded ? 1 : 0, x: loaded ? 0 : 26 }}
+                transition={{ duration: 0.78, delay: 0.42 }}
+                className="hidden lg:block"
+              >
+                <div className="arcade-panel border-[#4bd6ff]/24 bg-black/42 p-5 backdrop-blur-md">
+                  <div className="flex items-center justify-between gap-4">
+                    <p className="text-[0.66rem] font-bold uppercase tracking-[0.32em] text-cyan-100/80">Venue mix</p>
+                    <span className="h-2 w-2 bg-[#7dff7a] shadow-[0_0_18px_rgba(125,255,122,0.9)]" />
+                  </div>
+                  <div className="mt-5 grid gap-3">
+                    {highlights.map((item) => (
+                      <div key={item.value} className="border border-white/10 bg-white/[0.045] p-4">
+                        <p className="font-display text-3xl uppercase tracking-[0.08em] text-white">{item.value}</p>
+                        <p className="mt-1 text-sm leading-6 text-slate-300">{item.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          <div className="absolute inset-x-0 bottom-0 z-10 border-y border-white/10 bg-black/72 py-4 backdrop-blur-md">
+            <div className="marquee-track flex whitespace-nowrap text-sm font-bold uppercase tracking-[0.22em] text-white/78">
+              {[...attractionRail, ...attractionRail].map((item, index) => (
+                <span key={`${item}-${index}`} className="mx-5 inline-flex items-center gap-4">
+                  <span className="h-1.5 w-1.5 bg-[#ff0092] shadow-[0_0_12px_rgba(255,0,146,0.9)]" />
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
 
 
 
         <SectionShell tone="dark">
-          <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
+          <div className="grid gap-8">
             <SectionHeading
               eyebrow="Venue outcomes"
               title="More play, longer stays and better use of the room."
               text="The right mix of arcade machines, pool tables and prize attractions can make a venue feel more active while supporting the way guests already move through the space."
+              action={<PillButton variant="secondary" onClick={() => scrollToId('services')}>Explore services <ArrowRight size={16} /></PillButton>}
             />
-            <div className="grid gap-4 sm:grid-cols-2">
-              {venueOutcomes.map((item) => (
-                <GlowCard key={item.title} className="border-cyan-300/14 bg-[linear-gradient(180deg,rgba(7,18,25,0.9),rgba(5,8,12,0.98))]">
-                  <h3 className="font-display text-2xl uppercase tracking-[0.1em] text-white">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">{item.description}</p>
-                </GlowCard>
-              ))}
+            <div className="grid gap-4 xl:grid-cols-[1.12fr_0.88fr]">
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.55 }}
+                className="arcade-panel min-h-[34rem] overflow-hidden p-0"
+              >
+                <img src="/assets/gallery/curated/venue-floor-wide.webp" alt="Arcade machines installed in a venue games room" className="h-full min-h-[34rem] w-full object-cover" />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,5,8,0.05),rgba(3,5,8,0.78))]" />
+                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+                  <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#4bd6ff]">From quiet floor space to active attraction</p>
+                  <h3 className="mt-3 max-w-2xl font-display text-5xl uppercase leading-[0.9] tracking-[0.06em] text-white">
+                    Build the room people notice.
+                  </h3>
+                </div>
+              </motion.div>
+              <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
+                {venueOutcomes.map((item, index) => (
+                  <GlowCard key={item.title} className="border-cyan-300/14 bg-[linear-gradient(180deg,rgba(7,18,25,0.9),rgba(5,8,12,0.98))]">
+                    <p className="font-display text-2xl uppercase tracking-[0.1em] text-[#ff0092]">0{index + 1}</p>
+                    <h3 className="mt-3 font-display text-3xl uppercase leading-none tracking-[0.08em] text-white">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-slate-300">{item.description}</p>
+                  </GlowCard>
+                ))}
+              </div>
             </div>
           </div>
         </SectionShell>
@@ -331,20 +388,43 @@ export default function App() {
             text="Choose the entertainment mix, commercial arrangement and servicing approach that fits the venue. High Voltage Gaming Systems can help with supply, leasing, profit-share options and ongoing maintenance."
           />
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {services.map((service) => {
               const Icon = service.icon;
               return (
-                <GlowCard key={service.title}>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#ff0092]/28 bg-[#ff0092]/14 text-[#ffd0ea]">
+                <GlowCard key={service.title} className="service-card min-h-[18rem]">
+                  <div className="flex h-[3.25rem] w-[3.25rem] items-center justify-center border border-[#ff0092]/36 bg-[#ff0092]/14 text-[#ffd0ea]">
                     <Icon size={22} />
                   </div>
-                  <h3 className="mt-6 text-xl font-semibold text-white">{service.title}</h3>
+                  <h3 className="mt-6 font-display text-4xl uppercase leading-none tracking-[0.06em] text-white">{service.title}</h3>
                   <p className="mt-3 text-sm leading-7 text-slate-300">{service.description}</p>
                 </GlowCard>
               );
             })}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.55 }}
+            className="mt-6 grid overflow-hidden border border-[#ff0092]/20 bg-[linear-gradient(90deg,rgba(255,0,146,0.18),rgba(75,214,255,0.08),rgba(142,40,222,0.16))] lg:grid-cols-[0.82fr_1.18fr]"
+          >
+            <div className="p-6 sm:p-8">
+              <p className="text-xs font-bold uppercase tracking-[0.32em] text-[#ff9bd5]">Commercial pathway</p>
+              <h3 className="mt-3 font-display text-5xl uppercase leading-[0.9] tracking-[0.06em] text-white">
+                Zero-upfront-cost options for suitable venues.
+              </h3>
+            </div>
+            <div className="grid gap-3 border-t border-white/10 bg-black/24 p-6 sm:grid-cols-3 lg:border-l lg:border-t-0 lg:p-8">
+              {['Assess the room', 'Match the machines', 'Support the install'].map((item, index) => (
+                <div key={item} className="border border-white/10 bg-black/24 p-4">
+                  <p className="font-display text-3xl text-[#4bd6ff]">0{index + 1}</p>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.12em] text-white">{item}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </SectionShell>
 
         <SectionShell id="range" tone="violet">
@@ -364,14 +444,20 @@ export default function App() {
             </div>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {categories.map((category) => (
-              <GlowCard key={category.title} className="overflow-hidden p-0">
-                <div className="relative h-72 overflow-hidden">
+          <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {categories.map((category, index) => (
+              <GlowCard key={category.title} className="group/range overflow-hidden p-0">
+                <div className="relative h-[21rem] overflow-hidden">
                   <img src={category.image} alt={category.title} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,12,0.02),rgba(8,8,12,0.88))]" />
+                  <div className="absolute left-4 top-4 flex h-11 w-11 items-center justify-center border border-white/16 bg-black/52 font-display text-xl text-white backdrop-blur">
+                    {index + 1}
+                  </div>
+                  <div className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center border border-[#4bd6ff]/24 bg-[#4bd6ff]/12 text-cyan-100 opacity-0 transition duration-300 group-hover/range:opacity-100">
+                    <ArrowRight size={17} />
+                  </div>
                   <div className="absolute inset-x-0 bottom-0 p-6">
-                    <h3 className="text-2xl font-semibold text-white">{category.title}</h3>
+                    <h3 className="font-display text-4xl uppercase leading-none tracking-[0.06em] text-white">{category.title}</h3>
                     <p className="mt-2 text-sm leading-7 text-slate-200/90">{category.description}</p>
                   </div>
                 </div>
@@ -443,7 +529,7 @@ export default function App() {
             text="Full games rooms, activated corners, racing banks, prize machines and social games for venues that want more energy on the floor."
           />
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <div className="mt-12 grid gap-5 lg:grid-cols-4">
             {galleryStories.map((story, index) => {
               const border = story.accent === 'pink'
                 ? 'border-[#ff5ab7]/20'
@@ -462,7 +548,11 @@ export default function App() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.18 }}
                   transition={{ duration: 0.5, delay: index * 0.06 }}
-                  className={cn('overflow-hidden rounded-[30px] border bg-[linear-gradient(180deg,rgba(11,16,25,0.94),rgba(5,8,12,0.99))] shadow-[0_24px_90px_rgba(0,0,0,0.4)]', border)}
+                  className={cn(
+                    'arcade-panel overflow-hidden bg-[linear-gradient(180deg,rgba(11,16,25,0.94),rgba(5,8,12,0.99))] p-0 shadow-[0_24px_90px_rgba(0,0,0,0.4)]',
+                    border,
+                    index === 0 ? 'lg:col-span-2' : '',
+                  )}
                 >
                   <button
                     type="button"
@@ -475,7 +565,7 @@ export default function App() {
                         accent: story.accent,
                       })
                     }
-                    className="group relative block h-72 w-full overflow-hidden text-left"
+                    className={cn('group relative block w-full overflow-hidden text-left', index === 0 ? 'h-[28rem]' : 'h-72')}
                   >
                     <img src={story.image} alt={story.title} className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]" />
                     <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,6,10,0),rgba(4,6,10,0.18),rgba(4,6,10,0.74))]" />
@@ -506,7 +596,7 @@ export default function App() {
             })}
           </div>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {galleryItems.map((item, index) => {
               const chip = item.accent === 'pink'
                 ? 'border-[#ff5ab7]/30 bg-[#ff0092]/14 text-[#ffd1ed]'
@@ -521,7 +611,7 @@ export default function App() {
                   viewport={{ once: true, amount: 0.18 }}
                   transition={{ duration: 0.45, delay: index * 0.04 }}
                   onClick={() => setLightboxItem(item)}
-                  className="group cursor-zoom-in overflow-hidden rounded-[24px] border border-white/10 bg-[linear-gradient(180deg,rgba(12,13,20,0.9),rgba(6,8,12,0.98))] shadow-[0_18px_60px_rgba(0,0,0,0.32)]"
+                  className="arcade-panel group cursor-zoom-in overflow-hidden bg-[linear-gradient(180deg,rgba(12,13,20,0.9),rgba(6,8,12,0.98))] p-0 shadow-[0_18px_60px_rgba(0,0,0,0.32)]"
                 >
                   <div className="relative h-56 overflow-hidden">
                     <img src={item.image} alt={item.title} className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.05]" />
@@ -578,6 +668,24 @@ export default function App() {
                       <p className="mt-2 text-sm leading-7 text-slate-300">{area.description}</p>
                     </div>
                   </div>
+                </GlowCard>
+              ))}
+            </div>
+          </div>
+        </SectionShell>
+
+        <SectionShell tone="mixed">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <SectionHeading
+              eyebrow="Venue experience"
+              title="Trusted by regional hospitality, accommodation and social venues."
+              text="High Voltage Gaming Systems has worked with pubs, hotels, resorts and family venues across the border, Murray and Riverina regions."
+            />
+            <div className="grid gap-3 sm:grid-cols-2">
+              {venueProof.map((venue) => (
+                <GlowCard key={`${venue.title}-${venue.location}`} className="border-cyan-300/12 bg-[linear-gradient(180deg,rgba(9,18,25,0.9),rgba(6,8,12,0.98))] p-5">
+                  <h3 className="text-lg font-semibold text-white">{venue.title}</h3>
+                  <p className="mt-2 text-sm uppercase tracking-[0.16em] text-slate-400">{venue.location}</p>
                 </GlowCard>
               ))}
             </div>
