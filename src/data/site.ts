@@ -367,6 +367,11 @@ export const faqs: Faq[] = [
       'For commercial venues across Albury-Wodonga, Shepparton, the Murray and the Riverina, High Voltage Gaming Systems can discuss arcade game machines, prize machines, pool tables and zero-upfront-cost placement options for suitable sites.',
   },
   {
+    question: 'Do you supply gaming machines or pokies?',
+    answer:
+      'No. High Voltage Gaming Systems supplies non-gambling arcade, amusement, pool, prize and venue entertainment equipment rather than poker machines.',
+  },
+  {
     question: 'Can you supply pool tables as well as arcade machines?',
     answer:
       'Yes. Pool tables, arcade cabinets, racing games, prize machines, air hockey and other social games can all be considered as part of the venue mix.',

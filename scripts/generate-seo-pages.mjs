@@ -179,9 +179,9 @@ function pageTemplate(page) {
     <meta name="twitter:title" content="${escapeHtml(page.metaTitle)}" />
     <meta name="twitter:description" content="${escapeHtml(page.metaDescription)}" />
     <meta name="twitter:image" content="${siteUrl}${page.image}" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/google-favicon.png" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <script type="application/ld+json">${jsonLdFor(page)}</script>
