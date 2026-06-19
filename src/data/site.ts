@@ -74,22 +74,22 @@ export type Faq = {
 export const site = {
   name: 'High Voltage Gaming Systems',
   email: 'info@hvgamingsystems.com.au',
-  tagline: 'Arcade machines, pool tables and amusement equipment for venues that want guests to stay, play and come back.',
+  tagline: 'Arcade machines, commercial game machines, pool tables and amusement equipment for venues that want guests to stay, play and come back.',
   region: 'Murray / Riverina region',
-  heroTitle: 'Arcade machines, pool tables and venue-ready entertainment for hospitality, tourism and leisure spaces across the Murray and Riverina.',
+  heroTitle: 'Arcade machines, commercial game machines, pool tables and venue-ready entertainment for hospitality, tourism and leisure spaces across the Murray and Riverina.',
   heroText:
-    'High Voltage Gaming Systems helps venues build a stronger games offering with eye-catching machines, dependable support and zero-upfront-cost placement options for suitable sites.',
+    'High Voltage Gaming Systems helps venues build a stronger games offering with arcade games, prize machines, dependable support and zero-upfront-cost placement options for suitable sites.',
   ctaPrimary: 'Contact us',
   ctaSecondary: 'View our range',
   aboutTitle: 'Veteran-owned, regionally focused and serious about keeping venues moving.',
   aboutText:
     'High Voltage Gaming Systems works with hotels, clubs, holiday parks and entertainment venues across the Murray and Riverina. From the first conversation through to servicing, the focus is simple: the right machines for the room, a clean install and reliable support when the venue needs it.',
   footerBlurb:
-    'Arcade machines, pool tables, prize attractions, zero-upfront-cost placement options and technical support for hospitality, tourism and entertainment venues across the Murray / Riverina region.',
+    'Arcade machines, commercial game machines, pool tables, prize attractions, zero-upfront-cost placement options and technical support for hospitality, tourism and entertainment venues across the Murray / Riverina region.',
 };
 
 export const highlights: Highlight[] = [
-  { value: 'Arcade machines', label: 'High-impact cabinets that turn quiet floor space into active entertainment' },
+  { value: 'Game machines', label: 'Arcade games and commercial machines that turn quiet floor space into active entertainment' },
   { value: 'Pool tables', label: 'Commercial tables for pubs, clubs, parks and social venues' },
   { value: 'Zero upfront', label: 'Placement options for suitable venues without an initial machine purchase' },
   { value: 'Qualified support', label: 'Technical backup to keep equipment presentable and operating' },
@@ -99,7 +99,7 @@ export const services: Service[] = [
   {
     title: 'Arcade machine supply',
     description:
-      'Cabinets selected for the available space, guest profile and level of visual impact the venue wants on the floor.',
+      'Arcade games and commercial game machines selected for the available space, guest profile and visual impact the venue wants on the floor.',
     icon: Gamepad2,
   },
   {
@@ -308,11 +308,11 @@ export const serviceAreas: ContentItem[] = [
   },
   {
     title: 'Murray and Riverina',
-    description: 'Arcade machines, pool tables and amusement equipment for venues across the Murray corridor and wider Riverina.',
+    description: 'Arcade machines, commercial game machines, pool tables and amusement equipment for venues across the Murray corridor and wider Riverina.',
   },
   {
     title: 'Wider regional radius',
-    description: 'Priority coverage within roughly 300 km, with suitable regional enquiries handled directly or referred through trusted partners.',
+    description: 'Priority coverage within roughly 300 km, including suitable Shepparton and Goulburn Valley enquiries handled directly or referred through trusted partners.',
   },
 ];
 
@@ -360,6 +360,11 @@ export const faqs: Faq[] = [
     question: 'What areas do you cover?',
     answer:
       'The business focuses on Albury-Wodonga, the Murray and the Riverina, with suitable enquiries considered across roughly a 300 km regional radius.',
+  },
+  {
+    question: 'Do you supply game machines near me?',
+    answer:
+      'For commercial venues across Albury-Wodonga, Shepparton, the Murray and the Riverina, High Voltage Gaming Systems can discuss arcade game machines, prize machines, pool tables and zero-upfront-cost placement options for suitable sites.',
   },
   {
     question: 'Can you supply pool tables as well as arcade machines?',

@@ -54,6 +54,16 @@ function optionalVenueExamples(page) {
         </section>`;
 }
 
+function optionalSearchTerms(page) {
+  if (!page.alternateTerms?.length) return '';
+
+  return `<section class="card" aria-label="Common search terms">
+          <h2>Common ways venues search for this</h2>
+          <p>Venue operators use different language for the same commercial equipment. High Voltage Gaming Systems can help when the enquiry is about arcade machines, commercial game machines, arcade games, prize machines or a broader games-room setup for a pub, club, resort or accommodation venue.</p>
+          <div class="links">${page.alternateTerms.map((term) => `<span>${escapeHtml(term)}</span>`).join('\n')}</div>
+        </section>`;
+}
+
 function landingLinks(currentSlug) {
   return pages
     .filter((page) => page.slug !== currentSlug)
@@ -93,6 +103,7 @@ function jsonLdFor(page) {
           description: page.intro,
           provider: { '@id': `${siteUrl}/#organization` },
           serviceType: page.shortTitle,
+          ...(page.alternateTerms?.length ? { alternateName: page.alternateTerms } : {}),
           areaServed: page.primaryAreas.map((name) => ({ '@type': 'Place', name })),
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
@@ -280,6 +291,8 @@ function pageTemplate(page) {
         ${optionalAreaGroups(page)}
 
         ${optionalVenueExamples(page)}
+
+        ${optionalSearchTerms(page)}
 
         <section class="card">
           <h2>Related local services</h2>

@@ -13,6 +13,7 @@
     "bestFor": ["Hotels and pubs", "Clubs and social venues", "Entertainment rooms", "Tourism venues"],
     "services": ["Arcade machine supply", "Zero-upfront-cost placement options", "Machine mix recommendations", "Installation and ongoing maintenance"],
     "outcomes": ["More energy on quiet floor space", "Better entertainment for groups and families", "Machines chosen to suit the venue, not a generic catalogue"],
+    "alternateTerms": ["Albury arcade game", "arcade games Albury", "arcade game machines Albury", "game machines Albury", "commercial game machines Albury Wodonga", "amusement machines Albury Wodonga", "pub arcade machines Albury", "venue game machines Wodonga"],
     "faqs": [
       {
         "question": "Can you recommend machines for a small venue?",
@@ -21,6 +22,85 @@
       {
         "question": "Do you offer zero-upfront-cost arcade machine placements in Albury Wodonga?",
         "answer": "Zero-upfront-cost placement and profit-share options can be discussed for suitable venues, depending on the equipment mix, floor space and commercial arrangement."
+      }
+    ]
+  },
+  {
+    "slug": "commercial-game-machines-near-me",
+    "title": "Commercial Game Machines Near Albury-Wodonga and the Murray Riverina",
+    "shortTitle": "Commercial game machines near me",
+    "metaTitle": "Game Machines Near Me | Arcade & Amusement Machines | HVGS",
+    "metaDescription": "Commercial game machines, arcade games, prize machines and pool tables for pubs, clubs, resorts and hospitality venues across Albury-Wodonga, the Murray and Riverina.",
+    "eyebrow": "Commercial game machines",
+    "hero": "Searching for game machines near you for a pub, club, resort or regional venue?",
+    "intro": "High Voltage Gaming Systems supplies and supports commercial game machines, arcade games, pool tables, prize machines and amusement equipment for venue operators across Albury-Wodonga, the Murray, Riverina and wider regional NSW/VIC.",
+    "image": "/assets/gallery/curated/venue-games-lineup.webp",
+    "primaryAreas": ["Albury-Wodonga", "Murray region", "Riverina region", "Shepparton", "Wagga Wagga", "Wangaratta", "Yarrawonga", "Echuca", "Moama"],
+    "bestFor": ["Pubs and hotels", "Clubs", "Holiday parks", "Resorts", "Accommodation venues", "Family entertainment spaces"],
+    "services": ["Commercial game machine supply", "Arcade game machines", "Pool tables and air hockey", "Claw, prize and skill machines", "Zero-upfront-cost placement options", "Installation and servicing"],
+    "outcomes": ["A practical local pathway when searching for game machines near me", "Venue-ready equipment selected for guest appeal and available space", "Support from a regional supplier rather than a generic online catalogue"],
+    "alternateTerms": ["game machine near me", "game machines near me", "arcade game near me", "arcade game machines near me", "commercial game machines near me", "amusement machines near me", "pub game machines near me", "claw machines near me", "pool tables for venues near me"],
+    "faqs": [
+      {
+        "question": "Do you supply game machines near me?",
+        "answer": "If your venue is in Albury-Wodonga, the Murray, Riverina, Shepparton, Wangaratta, Wagga Wagga or nearby regional NSW/VIC areas, High Voltage Gaming Systems can discuss commercial game machines and suitable placement options."
+      },
+      {
+        "question": "Are these machines for homes or commercial venues?",
+        "answer": "The focus is commercial venue entertainment for pubs, clubs, resorts, accommodation venues, holiday parks and leisure spaces rather than home gaming setups."
+      }
+    ]
+  },
+  {
+    "slug": "game-machines-shepparton",
+    "title": "Game Machines for Shepparton Pubs, Clubs and Venues",
+    "shortTitle": "Game machines Shepparton",
+    "metaTitle": "Game Machines Shepparton | Arcade & Amusement Machines | HVGS",
+    "metaDescription": "Commercial game machines, arcade machines, prize machines and pool tables for Shepparton pubs, hotels, clubs and accommodation venues.",
+    "eyebrow": "Shepparton venue games",
+    "hero": "Commercial game machines for Shepparton venues that want more energy on the floor.",
+    "intro": "High Voltage Gaming Systems works with regional venue operators around Shepparton and the Goulburn Valley, helping pubs, hotels, clubs and accommodation venues add arcade games, prize machines, pool tables and reliable amusement equipment.",
+    "image": "/assets/gallery/curated/prize-machine-lineup.webp",
+    "primaryAreas": ["Shepparton", "Mooroopna", "Kialla", "Tatura", "Kyabram", "Numurkah", "Nagambie", "Benalla", "Euroa", "Echuca"],
+    "bestFor": ["Hotels and pubs", "Clubs and social venues", "Accommodation venues", "Family entertainment areas"],
+    "services": ["Game machine supply", "Arcade game machines", "Prize and claw machines", "Pool tables and social games", "Zero-upfront-cost placement options", "Maintenance and support"],
+    "outcomes": ["A stronger games area for Shepparton venues", "Commercial equipment selected for guest profile and floor space", "A regional supplier with venue experience in Shepparton and nearby centres"],
+    "venueExamples": ["Aussie Hotel Shepparton", "Peppermill Inn"],
+    "alternateTerms": ["Shepparton game machine", "game machines Shepparton", "arcade games Shepparton", "arcade game machines Shepparton", "amusement machines Shepparton", "commercial arcade machines Shepparton", "pub game machines Shepparton", "claw machines Shepparton", "pool tables Shepparton"],
+    "faqs": [
+      {
+        "question": "Can you help Shepparton venues with game machines?",
+        "answer": "Yes. Shepparton venues can enquire about arcade machines, commercial game machines, prize machines, pool tables and zero-upfront-cost placement options for suitable sites."
+      },
+      {
+        "question": "What venue types in Shepparton suit commercial game machines?",
+        "answer": "Pubs, hotels, clubs, accommodation venues and family-friendly leisure spaces are usually the best fit, especially where there is visible floor space and regular guest traffic."
+      }
+    ]
+  },
+  {
+    "slug": "arcade-game-machines-albury-wodonga",
+    "title": "Arcade Game Machines for Albury Wodonga Venues",
+    "shortTitle": "Arcade game machines Albury Wodonga",
+    "metaTitle": "Arcade Game Machines Albury Wodonga | HVGS",
+    "metaDescription": "Arcade game machines, commercial game machines, prize attractions and pool tables for Albury Wodonga pubs, clubs and regional venues.",
+    "eyebrow": "Arcade games Albury Wodonga",
+    "hero": "Arcade game machines for Albury Wodonga venues that want stronger guest appeal.",
+    "intro": "For venue operators searching for an Albury arcade game supplier, High Voltage Gaming Systems can help with commercial arcade game machines, linked racers, prize machines, pool tables and amusement equipment that suits the room.",
+    "image": "/assets/gallery/curated/neon-racing-lane.webp",
+    "primaryAreas": ["Albury", "Wodonga", "Lavington", "Thurgoona", "West Wodonga", "Jindera", "Howlong", "Rutherglen", "Wangaratta"],
+    "bestFor": ["Pubs and hotels", "Clubs", "Holiday parks", "Resorts", "Entertainment rooms"],
+    "services": ["Arcade game machine supply", "Commercial game machines", "Linked racing cabinets", "Prize and claw machines", "Pool tables and air hockey", "Installation and maintenance"],
+    "outcomes": ["Better coverage for Albury arcade game searches", "A visible games area that fits the venue's audience", "Equipment selected around floor space, guest flow and support needs"],
+    "alternateTerms": ["Albury arcade game", "arcade game Albury", "arcade games Albury", "arcade game machines Albury", "game machines Albury", "commercial game machines Albury", "arcade machines Wodonga", "venue game machines Albury Wodonga"],
+    "faqs": [
+      {
+        "question": "Do you supply arcade games in Albury?",
+        "answer": "Yes. High Voltage Gaming Systems can discuss arcade game machines, commercial game machines, pool tables and prize machines for suitable Albury Wodonga venues."
+      },
+      {
+        "question": "Can arcade games be combined with pool tables or prize machines?",
+        "answer": "Yes. A stronger venue mix often combines arcade games, racing cabinets, pool tables, air hockey and prize machines so different guest groups have something to play."
       }
     ]
   },
@@ -163,6 +243,7 @@
     "bestFor": ["Pubs and hotels", "Clubs and social venues", "Holiday parks and resorts", "Accommodation venues", "Family entertainment spaces"],
     "services": ["Arcade machine supply", "Pool table supply", "Claw, prize and skill machines", "Zero-upfront-cost placements", "Profit-share arrangements", "Installation, servicing and maintenance"],
     "outcomes": ["Clear regional coverage for venue operators across southern NSW and northern Victoria", "A practical pathway for direct installs or trusted partner referral", "Equipment recommendations matched to the venue type, audience and available floor space"],
+    "alternateTerms": ["game machines near me", "arcade machines near me", "commercial game machines Albury Wodonga", "game machines Shepparton", "arcade games Riverina", "amusement machines Murray region", "pool tables for pubs near me", "claw machines for venues", "pub game machines regional NSW", "venue entertainment equipment Victoria"],
     "areaGroups": [
       {
         "title": "Border and Upper Murray",
@@ -205,8 +286,9 @@
     "image": "/assets/gallery/curated/pinball-cabinet-corner.webp",
     "primaryAreas": ["Murray region", "Riverina region", "Albury Wodonga", "Regional venues"],
     "bestFor": ["Venue operators", "Pubs and clubs", "Holiday parks", "Entertainment rooms"],
-    "services": ["Arcade machine servicing", "Fault finding", "Presentation checks", "Ongoing maintenance support"],
+    "services": ["Arcade machine servicing", "Game machine repairs", "Fault finding", "Presentation checks", "Ongoing maintenance support"],
     "outcomes": ["Less avoidable downtime", "Better presentation for guests", "Technical support from people who understand the equipment"],
+    "alternateTerms": ["game machine repairs", "arcade game repairs", "arcade machine repairs near me", "amusement machine maintenance", "commercial game machine servicing", "pub arcade machine repairs"],
     "faqs": [
       {
         "question": "Do you service machines after installation?",
