@@ -94,38 +94,41 @@ function SectionShell({
   className = '',
   tone = 'violet',
   width = 'standard',
+  spacing = 'standard',
   children,
 }: {
   id?: string;
   className?: string;
   tone?: 'violet' | 'pink' | 'cyan' | 'mixed' | 'dark';
   width?: 'standard' | 'wide' | 'narrow';
+  spacing?: 'connected' | 'standard' | 'major';
   children: ReactNode;
 }) {
   const tones: Record<string, string> = {
-    violet:
-      'after:bg-[linear-gradient(135deg,rgba(142,40,222,0.18),rgba(47,216,255,0.05)_44%,transparent_76%)]',
-    pink:
-      'after:bg-[linear-gradient(135deg,rgba(255,0,146,0.14),rgba(142,40,222,0.07)_48%,transparent_78%)]',
-    cyan:
-      'after:bg-[linear-gradient(135deg,rgba(75,214,255,0.13),rgba(26,57,72,0.08)_48%,transparent_80%)]',
-    mixed:
-      'after:bg-[linear-gradient(135deg,rgba(255,0,146,0.12),rgba(75,214,255,0.08)_42%,rgba(142,40,222,0.12)_74%,transparent_100%)]',
-    dark:
-      'after:bg-[linear-gradient(135deg,rgba(255,255,255,0.035),rgba(75,214,255,0.035)_52%,transparent_82%)]',
+    violet: 'section-band section-band--violet',
+    pink: 'section-band section-band--pink',
+    cyan: 'section-band section-band--cyan',
+    mixed: 'section-band section-band--mixed',
+    dark: 'section-band section-band--dark',
   };
   const widths = {
-    standard: 'max-w-[96rem]',
-    wide: 'max-w-[108rem]',
-    narrow: 'max-w-[78rem]',
+    standard: 'max-w-[80rem]',
+    wide: 'max-w-[96rem]',
+    narrow: 'max-w-[52rem]',
+  };
+  const spacings = {
+    connected: 'py-[clamp(2.5rem,3vw,3.75rem)]',
+    standard: 'py-[clamp(3.5rem,4.5vw,5rem)]',
+    major: 'py-[clamp(4.25rem,5.5vw,6rem)]',
   };
 
   return (
     <section
       id={id}
       className={cn(
-        '-mt-px relative isolate overflow-hidden bg-transparent px-5 py-[clamp(3.75rem,6vw,6rem)] after:pointer-events-none after:absolute after:inset-0 after:z-0 after:[mask-image:linear-gradient(180deg,transparent,black_14%,black_86%,transparent)] sm:px-6 lg:px-8 2xl:px-10',
+        'relative isolate overflow-hidden border-t border-white/[0.055] px-5 sm:px-6 lg:px-8 2xl:px-12',
         tones[tone],
+        spacings[spacing],
         className,
       )}
     >
@@ -212,7 +215,7 @@ export default function App() {
       </div>
 
       <header className="sticky top-0 z-50 border-b border-white/8 bg-[#06070b]/72 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-[108rem] items-center justify-between px-5 py-4 sm:px-6 lg:px-8 2xl:px-10">
+        <div className="mx-auto flex max-w-[96rem] items-center justify-between px-5 py-4 sm:px-6 lg:px-8 2xl:px-12">
           <a href="#home" className="flex items-center gap-4 text-left">
             <img src="/assets/hv/logo-primary.png" alt="HIGH VOLTAGE GAMING SYSTEMS" className="h-10 w-auto sm:h-11" />
           </a>
@@ -287,20 +290,20 @@ export default function App() {
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.72),rgba(0,0,0,0.05)_42%,rgba(0,0,0,0.9)_100%)]" />
           <div className="scanline-overlay absolute inset-0" />
 
-          <div className="relative flex min-h-[42rem] items-center px-5 pb-24 pt-24 sm:px-6 sm:pt-28 lg:min-h-[clamp(42rem,78svh,52rem)] lg:px-8 2xl:px-10">
-            <div className="mx-auto grid w-full max-w-[108rem] gap-8 lg:grid-cols-[minmax(0,1.12fr)_minmax(23rem,0.58fr)] lg:items-end 2xl:grid-cols-[minmax(0,1.16fr)_minmax(34rem,0.84fr)]">
+          <div className="relative flex min-h-[42rem] items-center px-5 pb-24 pt-24 sm:px-6 sm:pt-28 lg:min-h-[clamp(42rem,78svh,52rem)] lg:px-8 2xl:px-12">
+            <div className="mx-auto grid w-full max-w-[96rem] gap-8 lg:grid-cols-[minmax(0,1.16fr)_minmax(22rem,0.64fr)] lg:items-end 2xl:grid-cols-[minmax(0,1.2fr)_minmax(28rem,0.8fr)]">
               <motion.div
                 initial={{ opacity: 0, y: 26 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="max-w-5xl"
               >
-                <div className="inline-flex items-center gap-3 border border-[#ff0092]/36 bg-black/44 px-4 py-2 text-[0.7rem] font-bold uppercase tracking-[0.32em] text-[#ff8ccf] shadow-[0_0_32px_rgba(255,0,146,0.18)] backdrop-blur">
+                <div className="inline-flex items-center gap-3 border border-[#ff0092]/36 bg-black/44 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-[#ff8ccf] shadow-[0_0_32px_rgba(255,0,146,0.18)] backdrop-blur">
                   <Zap size={15} className="text-[#4bd6ff]" />
                   Murray / Riverina venue entertainment
                 </div>
 
-                <h1 className="mt-6 max-w-5xl font-display text-[clamp(4rem,8.4vw,9rem)] uppercase leading-[0.8] tracking-[0.025em] text-white drop-shadow-[0_0_28px_rgba(255,0,146,0.22)]">
+                <h1 className="mt-6 max-w-5xl font-display text-[clamp(3.5rem,7.2vw,7.75rem)] uppercase leading-[0.86] tracking-[0.025em] text-white drop-shadow-[0_0_28px_rgba(255,0,146,0.22)]">
                   High Voltage
                   <span className="block text-[#ff0092]">Gaming Systems</span>
                 </h1>
@@ -329,14 +332,14 @@ export default function App() {
               >
                 <div className="arcade-panel border-[#4bd6ff]/24 bg-black/42 p-5 backdrop-blur-md">
                   <div className="flex items-center justify-between gap-4">
-                    <p className="text-[0.66rem] font-bold uppercase tracking-[0.32em] text-cyan-100/80">Venue mix</p>
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-100/80">Venue mix</p>
                     <span className="h-2 w-2 bg-[#7dff7a] shadow-[0_0_18px_rgba(125,255,122,0.9)]" />
                   </div>
                   <div className="mt-4 grid gap-3 2xl:grid-cols-2">
                     {highlights.map((item) => (
                       <div key={item.value} className="border border-white/10 bg-white/[0.045] p-3.5">
                         <p className="font-display text-2xl uppercase tracking-[0.08em] text-white">{item.value}</p>
-                        <p className="mt-1 text-sm leading-6 text-slate-300">{item.label}</p>
+                        <p className="mt-1 text-[0.9375rem] leading-6 text-slate-200">{item.label}</p>
                       </div>
                     ))}
                   </div>
@@ -359,7 +362,7 @@ export default function App() {
 
 
 
-        <SectionShell tone="dark" width="wide">
+        <SectionShell tone="dark" width="wide" spacing="major">
           <div className="grid gap-8 xl:grid-cols-[0.68fr_1.32fr] xl:items-stretch">
             <SectionHeading
               eyebrow="Venue outcomes"
@@ -377,7 +380,7 @@ export default function App() {
               <img src="/assets/gallery/curated/venue-floor-wide.webp" alt="Arcade machines installed in a venue games room" className="h-full min-h-[21rem] w-full object-cover" />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,5,8,0.05),rgba(3,5,8,0.82))]" />
               <div className="absolute inset-x-0 bottom-0 p-6 lg:p-7">
-                <p className="text-xs font-bold uppercase tracking-[0.28em] text-[#4bd6ff]">From quiet floor space to active attraction</p>
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#4bd6ff]">From quiet floor space to active attraction</p>
                 <h3 className="mt-2 max-w-2xl font-display text-[clamp(2.4rem,3.4vw,4rem)] uppercase leading-[0.9] tracking-[0.05em] text-white">
                   Build the room people notice.
                 </h3>
@@ -386,12 +389,12 @@ export default function App() {
           </div>
           <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {venueOutcomes.map((item, index) => (
-              <GlowCard key={item.title} className="border-cyan-300/14 bg-[linear-gradient(180deg,rgba(7,18,25,0.9),rgba(5,8,12,0.98))] p-5">
+              <GlowCard key={item.title} padding="compact" tone="cyan">
                 <div className="flex items-start gap-4">
                   <p className="font-display text-2xl uppercase tracking-[0.1em] text-[#ff0092]">0{index + 1}</p>
                   <div>
                     <h3 className="font-display text-2xl uppercase leading-none tracking-[0.07em] text-white">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-300">{item.description}</p>
+                    <p className="mt-2 text-[0.9375rem] leading-7 text-slate-200">{item.description}</p>
                   </div>
                 </div>
               </GlowCard>
@@ -399,7 +402,7 @@ export default function App() {
           </div>
         </SectionShell>
 
-        <SectionShell id="services" tone="pink">
+        <SectionShell id="services" tone="pink" spacing="connected">
           <SectionHeading
             eyebrow="Services"
             title="Machines, tables and support without the guesswork."
@@ -410,12 +413,12 @@ export default function App() {
             {services.map((service) => {
               const Icon = service.icon;
               return (
-                <GlowCard key={service.title} className="service-card p-5 pb-7">
+                <GlowCard key={service.title} className="service-card pb-7" padding="compact" tone="pink">
                   <div className="flex h-11 w-11 items-center justify-center border border-[#ff0092]/36 bg-[#ff0092]/14 text-[#ffd0ea]">
                     <Icon size={22} />
                   </div>
                   <h3 className="mt-4 font-display text-3xl uppercase leading-none tracking-[0.05em] text-white">{service.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-300">{service.description}</p>
+                  <p className="mt-2 text-[0.9375rem] leading-7 text-slate-200">{service.description}</p>
                 </GlowCard>
               );
             })}
@@ -429,7 +432,7 @@ export default function App() {
             className="mt-5 grid overflow-hidden border border-[#ff0092]/20 bg-[linear-gradient(90deg,rgba(255,0,146,0.18),rgba(75,214,255,0.08),rgba(142,40,222,0.16))] lg:grid-cols-[0.7fr_1.3fr]"
           >
             <div className="p-5 sm:p-6">
-              <p className="text-xs font-bold uppercase tracking-[0.32em] text-[#ff9bd5]">Commercial pathway</p>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff9bd5]">Commercial pathway</p>
               <h3 className="mt-2 font-display text-4xl uppercase leading-[0.92] tracking-[0.05em] text-white">
                 Zero-upfront-cost options for suitable venues.
               </h3>
@@ -445,7 +448,7 @@ export default function App() {
           </motion.div>
         </SectionShell>
 
-        <SectionShell id="range" tone="violet" width="wide">
+        <SectionShell id="range" tone="violet" width="wide" spacing="major">
           <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
             <SectionHeading
               eyebrow="Our range"
@@ -464,7 +467,7 @@ export default function App() {
 
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {categories.map((category, index) => (
-              <GlowCard key={category.title} className="group/range overflow-hidden p-0">
+              <GlowCard key={category.title} className="group/range" padding="none" tone="violet">
                 <div className="relative h-[18rem] overflow-hidden 2xl:h-[20rem]">
                   <img src={category.image} alt={category.title} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,12,0.02),rgba(8,8,12,0.88))]" />
@@ -476,7 +479,7 @@ export default function App() {
                   </div>
                   <div className="absolute inset-x-0 bottom-0 p-5">
                     <h3 className="font-display text-3xl uppercase leading-none tracking-[0.05em] text-white">{category.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-200/90">{category.description}</p>
+                    <p className="mt-2 text-[0.9375rem] leading-7 text-slate-100/90">{category.description}</p>
                   </div>
                 </div>
               </GlowCard>
@@ -484,14 +487,14 @@ export default function App() {
           </div>
         </SectionShell>
 
-        <SectionShell tone="mixed" width="wide">
+        <SectionShell tone="mixed" width="wide" spacing="connected">
           <div className="grid gap-5 lg:grid-cols-[0.78fr_1.22fr]">
-            <GlowCard className="min-h-[22rem] overflow-hidden border-[#ff0092]/18 bg-[linear-gradient(180deg,rgba(18,6,18,0.94),rgba(10,8,16,0.98))] p-0">
+            <GlowCard className="min-h-[22rem]" padding="none" tone="pink">
               <div className="relative h-full">
                 <img src="/assets/hv/motorbike-racers.jpg" alt="Motorbike arcade racing machines" className="h-full w-full object-cover" />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,10,16,0.12),rgba(8,10,16,0.84))]" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#ff7dc5]">Why High Voltage</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#ff7dc5]">Why High Voltage</p>
                   <p className="mt-3 max-w-md text-2xl font-semibold leading-tight text-white">
                     Venue-first advice, qualified technical support and machines chosen to earn their floor space.
                   </p>
@@ -502,12 +505,12 @@ export default function App() {
               {differentiators.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <GlowCard key={item.title} className="p-5">
+                  <GlowCard key={item.title} padding="compact" tone="violet">
                     <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#8e28de]/28 bg-[#8e28de]/14 text-[#f1d8ff]">
                       <Icon size={20} />
                     </div>
                     <h3 className="mt-4 text-xl font-semibold text-white">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-300">{item.description}</p>
+                    <p className="mt-2 text-[0.9375rem] leading-7 text-slate-200">{item.description}</p>
                   </GlowCard>
                 );
               })}
@@ -529,7 +532,7 @@ export default function App() {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold leading-tight text-white">{step.title}</h3>
-                      <p className="mt-2 text-sm leading-6 text-slate-300">{step.description}</p>
+                      <p className="mt-2 text-[0.9375rem] leading-7 text-slate-200">{step.description}</p>
                     </div>
                   </div>
                 </div>
@@ -538,7 +541,7 @@ export default function App() {
           </div>
         </SectionShell>
 
-        <SectionShell id="gallery" tone="cyan" width="wide">
+        <SectionShell id="gallery" tone="cyan" width="wide" spacing="major">
           <SectionHeading
             eyebrow="Showcase"
             title="Real venue spaces with machines doing useful work."
@@ -584,26 +587,26 @@ export default function App() {
                   >
                     <img src={story.image} alt={story.title} className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]" />
                     <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,6,10,0),rgba(4,6,10,0.18),rgba(4,6,10,0.74))]" />
-                    <div className={cn('absolute left-5 top-5 rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] backdrop-blur-md', chip)}>
+                    <div className={cn('absolute left-5 top-5 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] backdrop-blur-md', chip)}>
                       {story.tag}
                     </div>
                   </button>
 
                   <div className="p-5">
                     <h3 className="font-display text-[1.75rem] uppercase leading-none tracking-[0.06em] text-white">{story.title}</h3>
-                    <p className="mt-3 text-sm leading-6 text-slate-200">{story.outcome}</p>
+                    <p className="mt-3 text-[0.9375rem] leading-7 text-slate-100">{story.outcome}</p>
                     <details className="group/details mt-4 border-t border-white/8 pt-3">
                       <summary className="cursor-pointer list-none text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200 transition hover:text-white">
                         Venue and machine details
                       </summary>
                       <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2">
                         <div>
-                          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-500">Ideal venues</p>
-                          <p className="mt-1 text-sm leading-6 text-slate-300">{story.bestFor}</p>
+                          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Ideal venues</p>
+                          <p className="mt-1 text-[0.9375rem] leading-7 text-slate-200">{story.bestFor}</p>
                         </div>
                         <div>
-                          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-500">Machine mix</p>
-                          <p className="mt-1 text-sm leading-6 text-slate-300">{story.mix}</p>
+                          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Machine mix</p>
+                          <p className="mt-1 text-[0.9375rem] leading-7 text-slate-200">{story.mix}</p>
                         </div>
                       </div>
                     </details>
@@ -633,13 +636,13 @@ export default function App() {
                   <div className="relative h-48 overflow-hidden 2xl:h-56">
                     <img src={item.image} alt={item.title} className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.05]" />
                     <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,10,14,0.02),rgba(8,10,14,0.74))]" />
-                    <div className={cn('absolute left-4 top-4 rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] backdrop-blur', chip)}>
+                    <div className={cn('absolute left-4 top-4 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] backdrop-blur', chip)}>
                       {item.tag}
                     </div>
                   </div>
                   <div className="p-4">
                     <h3 className="text-lg font-semibold leading-snug text-white">{item.title}</h3>
-                    <p className="mt-2 max-h-12 overflow-hidden text-sm leading-6 text-slate-300">{item.blurb}</p>
+                    <p className="mt-2 max-h-14 overflow-hidden text-[0.9375rem] leading-7 text-slate-200">{item.blurb}</p>
                   </div>
                 </motion.article>
               );
@@ -647,7 +650,7 @@ export default function App() {
           </div>
         </SectionShell>
 
-        <SectionShell id="about" tone="pink" width="wide">
+        <SectionShell id="about" tone="pink" width="wide" spacing="major">
           <div className="grid items-start gap-8 lg:grid-cols-[0.62fr_1.38fr]">
             <div className="grid gap-4">
               <div className="overflow-hidden rounded-[24px] border border-white/12 bg-[linear-gradient(180deg,rgba(36,18,42,0.92),rgba(12,10,18,0.98))] p-3 shadow-[0_30px_100px_rgba(0,0,0,0.36)]">
@@ -665,9 +668,9 @@ export default function App() {
                 action={<PillButton onClick={() => scrollToId('contact')}>Start the conversation</PillButton>}
               />
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.28em] text-cyan-200">Service area</p>
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">Service area</p>
                 <h3 className="mt-2 font-display text-3xl uppercase leading-none tracking-[0.05em] text-white">Regional support across the Murray and Riverina.</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-300">Equipment that looks sharp, backed by regional support close enough to be useful.</p>
+                <p className="mt-3 text-[0.9375rem] leading-7 text-slate-200">Equipment that looks sharp, backed by regional support close enough to be useful.</p>
                 <div className="mt-4 grid gap-3">
                   {serviceAreas.map((area) => (
                     <div key={area.title} className="rounded-[18px] border border-cyan-300/14 bg-[linear-gradient(180deg,rgba(6,18,22,0.94),rgba(6,10,14,0.98))] p-4">
@@ -677,7 +680,7 @@ export default function App() {
                         </div>
                         <div>
                           <h4 className="text-lg font-semibold text-white">{area.title}</h4>
-                          <p className="mt-1 text-sm leading-6 text-slate-300">{area.description}</p>
+                          <p className="mt-1 text-[0.9375rem] leading-7 text-slate-200">{area.description}</p>
                         </div>
                       </div>
                     </div>
@@ -688,7 +691,7 @@ export default function App() {
           </div>
         </SectionShell>
 
-        <SectionShell tone="violet" width="wide">
+        <SectionShell tone="violet" spacing="connected">
           <div className="grid gap-8 lg:grid-cols-[0.68fr_1.32fr] lg:items-start">
             <SectionHeading
               eyebrow="Venue solutions"
@@ -703,7 +706,7 @@ export default function App() {
                   className="group flex min-h-24 items-center justify-between gap-3 rounded-[18px] border border-white/10 bg-[linear-gradient(180deg,rgba(20,17,34,0.88),rgba(7,9,15,0.98))] p-4 shadow-[0_18px_62px_rgba(0,0,0,0.3)] transition duration-300 hover:-translate-y-1 hover:border-[#a05cff]/34 hover:bg-[linear-gradient(180deg,rgba(38,24,62,0.9),rgba(7,9,15,0.98))]"
                 >
                   <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#ff8ccf]">{page.eyebrow}</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#ff8ccf]">{page.eyebrow}</p>
                     <h3 className="mt-2 text-base font-semibold leading-snug text-white transition group-hover:text-cyan-100">{page.shortTitle}</h3>
                   </div>
                   <ArrowRight size={16} className="shrink-0 text-cyan-200/70 transition group-hover:translate-x-1 group-hover:text-cyan-100" />
@@ -713,7 +716,7 @@ export default function App() {
           </div>
         </SectionShell>
 
-        <SectionShell id="faq" tone="dark" width="narrow">
+        <SectionShell id="faq" tone="dark" width="narrow" spacing="major">
           <SectionHeading
             eyebrow="FAQ"
             title="Common questions from venue operators."
@@ -727,13 +730,13 @@ export default function App() {
                   {item.question}
                   <span className="text-2xl font-light leading-none text-cyan-200 transition group-open:rotate-45">+</span>
                 </summary>
-                <p className="mt-3 border-t border-white/8 pt-3 text-sm leading-6 text-slate-300">{item.answer}</p>
+                <p className="mt-3 border-t border-white/8 pt-3 text-[0.9375rem] leading-7 text-slate-200">{item.answer}</p>
               </details>
             ))}
           </div>
         </SectionShell>
 
-        <SectionShell id="contact" className="pb-20 lg:pb-24" tone="mixed" width="wide">
+        <SectionShell id="contact" className="pb-20 lg:pb-24" tone="mixed" spacing="connected">
           <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
             <GlowCard>
               <p className="text-sm uppercase tracking-[0.3em] text-[#ff7dc5]">Contact</p>
@@ -762,38 +765,38 @@ export default function App() {
               </div>
             </GlowCard>
 
-            <GlowCard className="p-0">
+            <GlowCard padding="none" motionEffect="none">
               <form onSubmit={handleSubmit} className="grid gap-4 p-6 sm:p-7">
                 <label className="hidden" aria-hidden="true">
                   Website
                   <input name="website" tabIndex={-1} autoComplete="off" />
                 </label>
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <label className="grid gap-2 text-sm text-slate-300">
+                  <label className="grid gap-2 text-[0.9375rem] text-slate-200">
                     Name
                     <input name="name" required maxLength={100} autoComplete="name" className="rounded-2xl border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50" />
                   </label>
-                  <label className="grid gap-2 text-sm text-slate-300">
+                  <label className="grid gap-2 text-[0.9375rem] text-slate-200">
                     Email
                     <input name="email" type="email" required maxLength={254} autoComplete="email" className="rounded-2xl border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50" />
                   </label>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <label className="grid gap-2 text-sm text-slate-300">
+                  <label className="grid gap-2 text-[0.9375rem] text-slate-200">
                     Mobile
                     <input name="mobile" type="tel" maxLength={30} autoComplete="tel" className="rounded-2xl border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50" />
                   </label>
-                  <label className="grid gap-2 text-sm text-slate-300">
+                  <label className="grid gap-2 text-[0.9375rem] text-slate-200">
                     Venue / Business
                     <input name="venue" maxLength={120} autoComplete="organization" className="rounded-2xl border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50" />
                   </label>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <label className="grid gap-2 text-sm text-slate-300">
+                  <label className="grid gap-2 text-[0.9375rem] text-slate-200">
                     Location / postcode
                     <input name="location" maxLength={100} autoComplete="postal-code" className="rounded-2xl border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50" />
                   </label>
-                  <label className="grid gap-2 text-sm text-slate-300">
+                  <label className="grid gap-2 text-[0.9375rem] text-slate-200">
                     Venue type
                     <select name="venueType" className="rounded-2xl border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50">
                       <option>Hotel or pub</option>
@@ -804,7 +807,7 @@ export default function App() {
                     </select>
                   </label>
                 </div>
-                <label className="grid gap-2 text-sm text-slate-300">
+                <label className="grid gap-2 text-[0.9375rem] text-slate-200">
                   Enquiry type
                   <select name="enquiryType" className="rounded-2xl border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50">
                     {enquiryTypes.map((option) => (
@@ -812,7 +815,7 @@ export default function App() {
                     ))}
                   </select>
                 </label>
-                <label className="grid gap-2 text-sm text-slate-300">
+                <label className="grid gap-2 text-[0.9375rem] text-slate-200">
                   Message
                   <textarea name="message" required maxLength={3000} rows={5} className="rounded-[20px] border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50" />
                 </label>
@@ -898,10 +901,10 @@ export default function App() {
       </AnimatePresence>
 
       <footer className="relative z-10 border-t border-white/8 bg-[#06070b]/90">
-        <div className="mx-auto grid max-w-[96rem] gap-8 px-6 py-10 lg:grid-cols-[1fr_auto] lg:px-8 2xl:px-10">
+        <div className="mx-auto grid max-w-[80rem] gap-8 px-6 py-10 lg:grid-cols-[1fr_auto] lg:px-8 2xl:px-12">
           <div>
             <img src="/assets/hv/logo-primary.png" alt="High Voltage Gaming Systems" className="h-12 w-auto" />
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-400">{site.footerBlurb}</p>
+            <p className="mt-4 max-w-2xl text-[0.9375rem] leading-7 text-slate-300">{site.footerBlurb}</p>
           </div>
           <div className="flex flex-wrap gap-5 text-sm uppercase tracking-[0.12em] text-slate-400 lg:justify-end">
             {navItems.map((item) => (
