@@ -61,11 +61,6 @@ export type ContentItem = {
   description: string;
 };
 
-export type VenueProof = {
-  title: string;
-  location: string;
-};
-
 export type Faq = {
   question: string;
   answer: string;
@@ -314,22 +309,6 @@ export const serviceAreas: ContentItem[] = [
     title: 'Wider regional radius',
     description: 'Priority coverage within roughly 300 km, including suitable Shepparton and Goulburn Valley enquiries handled directly or referred through trusted partners.',
   },
-];
-
-export const venueProof: VenueProof[] = [
-  { title: 'Aussie Hotel Shepparton', location: 'Shepparton' },
-  { title: 'Beer DeLuxe Albury', location: 'Albury' },
-  { title: 'Blazing Stump Hotel', location: 'Wodonga' },
-  { title: 'Boomerang Hotel', location: 'Lavington' },
-  { title: 'Bundalong Pub', location: 'Bundalong' },
-  { title: 'Boathaven', location: 'Murray region' },
-  { title: 'Eddies Tavern', location: 'regional venue' },
-  { title: 'Empire Hotel', location: 'regional venue' },
-  { title: 'Globe Hotel', location: 'regional venue' },
-  { title: 'Great Aussie Resort', location: 'regional accommodation' },
-  { title: 'Huon Hill Hotel', location: 'Wodonga' },
-  { title: 'Peppermill Inn', location: 'Shepparton' },
-  { title: 'Siesta Resort', location: 'Albury' },
 ];
 
 export const enquiryTypes = [
