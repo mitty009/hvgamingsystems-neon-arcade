@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Rajdhani", Helvetica, Arial, sans-serif;
+  --font-sans: "Manrope", Helvetica, Arial, sans-serif;
   --font-display: "Bebas Neue", Impact, sans-serif;
+  --font-interface: "Rajdhani", Helvetica, Arial, sans-serif;
 }
 
 :root {
@@ -202,58 +203,32 @@ body::before {
   z-index: 2;
 }
 
-.hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  line-height: 1.02;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 400;
+.section-band {
+  background-color: #070910;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
-.hero-title-panel {
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 28px 88px rgba(0,0,0,0.28);
+.section-band--dark {
+  background-image: radial-gradient(circle at 18% 0%, rgba(75, 214, 255, 0.055), transparent 34%);
 }
 
-.hero-images-band {
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+.section-band--pink {
+  background-image: radial-gradient(circle at 82% 10%, rgba(255, 0, 146, 0.075), transparent 36%);
 }
 
-.hero-strip-item {
-  border: 1px solid rgba(255,255,255,0.08);
-  overflow: hidden;
-  position: relative;
-  background: #08090d;
+.section-band--violet {
+  background-image: radial-gradient(circle at 16% 8%, rgba(142, 40, 222, 0.085), transparent 38%);
 }
 
-.hero-strip-large {
-  min-height: 15.5rem;
+.section-band--cyan {
+  background-image: radial-gradient(circle at 84% 8%, rgba(75, 214, 255, 0.07), transparent 38%);
 }
 
-.hero-strip-small {
-  min-height: 7.25rem;
-}
-
-.hero-strip-item::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.18));
-}
-
-.hero-strip-item::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(115deg, transparent 18%, rgba(255,255,255,0.18) 32%, transparent 44%);
-  transform: translateX(-140%);
-  animation: sweep 8s ease-in-out infinite;
-  z-index: 2;
-}
-
-@keyframes sweep {
-  0%, 65%, 100% { transform: translateX(-140%); }
-  82% { transform: translateX(140%); }
+.section-band--mixed {
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(255, 0, 146, 0.065), transparent 34%),
+    radial-gradient(circle at 88% 92%, rgba(75, 214, 255, 0.05), transparent 34%);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -267,77 +242,11 @@ body::before {
   }
 }
 
-.loader-mascot::before,
-.loader-mascot::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-}
-
-.loader-mascot::before {
-  background: linear-gradient(180deg, rgba(255,255,255,0.26), transparent 38%);
-  opacity: 0.55;
-}
-
-.loader-mascot::after {
-  border: 1px solid rgba(255,255,255,0.14);
-}
-
-.loader-eye {
-  position: absolute;
-  top: 1.6rem;
-  width: 0.8rem;
-  height: 0.8rem;
-  border-radius: 999px;
-  background: white;
-  box-shadow: 0 0 14px rgba(255,255,255,0.9);
-}
-
-.loader-eye-left { left: 1.1rem; }
-.loader-eye-center { left: 50%; transform: translateX(-50%); width: 1rem; height: 1rem; }
-.loader-eye-right { right: 1.1rem; }
-
-@media (max-width: 1024px) {
-  .hero-strip-large {
-    min-height: 14rem;
-  }
-}
-
-@media (max-width: 980px) {
-  .hero-strip-large {
-    min-height: 12rem;
-  }
-
-  .hero-strip-small {
-    min-height: 10rem;
-  }
-}
-
-.hero-images-band {
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
-
-section[id], section {
-  position: relative;
-}
-
-.section-accent-pink::before, .section-accent-cyan::before, .section-accent-violet::before {
-  content: "";
-  position: absolute;
-  inset-inline: 0;
-  top: 0;
-  height: 1px;
-}
 
 @media (max-width: 640px) {
   .marquee-track {
     animation: none;
     width: auto;
     overflow: hidden;
-  }
-  .hero-title {
-    font-size: clamp(2.2rem, 12vw, 3.5rem);
-    letter-spacing: 2px;
   }
 }
