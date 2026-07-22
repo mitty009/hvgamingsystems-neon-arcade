@@ -14,6 +14,8 @@ export async function handler(event) {
     const email = clean(payload.email);
     const mobile = clean(payload.mobile);
     const venue = clean(payload.venue);
+    const location = clean(payload.location);
+    const venueType = clean(payload.venueType);
     const enquiryType = clean(payload.enquiryType);
     const message = String(payload.message ?? '').trim();
     const website = clean(payload.website);
@@ -42,6 +44,16 @@ export async function handler(event) {
       };
     }
 
+    const limits = { name: 100, email: 254, mobile: 30, venue: 120, location: 100, venueType: 80, enquiryType: 100, message: 3000 };
+    const values = { name, email, mobile, venue, location, venueType, enquiryType, message };
+    if (Object.entries(values).some(([key, value]) => value.length > limits[key])) {
+      return {
+        statusCode: 400,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ error: "One or more fields are too long." }),
+      };
+    }
+
     const apiKey = process.env.MAILGUN_API_KEY;
     const domain = process.env.MAILGUN_DOMAIN;
     const to = process.env.CONTACT_TO;
@@ -53,7 +65,7 @@ export async function handler(event) {
         statusCode: 500,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          error: "Mailgun environment variables are missing. Add MAILGUN_API_KEY, MAILGUN_DOMAIN and CONTACT_TO.",
+          error: "The enquiry service is temporarily unavailable. Please email us directly.",
         }),
       };
     }
@@ -70,6 +82,8 @@ export async function handler(event) {
         `Email: ${email}`,
         `Mobile: ${mobile || 'Not supplied'}`,
         `Venue: ${venue || 'Not supplied'}`,
+        `Location: ${location || 'Not supplied'}`,
+        `Venue type: ${venueType || 'Not supplied'}`,
         `Enquiry type: ${enquiryType || 'Not supplied'}`,
         '',
         message,
@@ -77,6 +91,8 @@ export async function handler(event) {
     );
 
     const auth = Buffer.from(`api:${apiKey}`).toString('base64');
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000);
     const response = await fetch(`${apiBase}/${domain}/messages`, {
       method: 'POST',
       headers: {
@@ -84,14 +100,14 @@ export async function handler(event) {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: data.toString(),
-    });
+      signal: controller.signal,
+    }).finally(() => clearTimeout(timeout));
 
     if (!response.ok) {
-      const text = await response.text();
       return {
         statusCode: 502,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ error: text || 'Mailgun request failed.' }),
+        body: JSON.stringify({ error: 'Your enquiry could not be sent. Please email us directly.' }),
       };
     }
 
@@ -104,7 +120,7 @@ export async function handler(event) {
     return {
       statusCode: 500,
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ error: error instanceof Error ? error.message : 'Unexpected error.' }),
+      body: JSON.stringify({ error: 'Your enquiry could not be sent. Please email us directly.' }),
     };
   }
 }

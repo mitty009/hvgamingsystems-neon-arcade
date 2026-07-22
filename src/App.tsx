@@ -1,8 +1,7 @@
-import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, ChevronRight, Mail, MapPin, Menu, Send, X, Zap } from 'lucide-react';
 import { GlowCard } from './components/GlowCard';
-import { Loader } from './components/Loader';
 import { SectionHeading } from './components/SectionHeading';
 import {
   categories,
@@ -19,7 +18,6 @@ import {
   site,
   stats,
   venueOutcomes,
-  venueProof,
 } from './data/site';
 import seoPages from './data/seo-pages.json';
 import { cn, scrollToId } from './lib/utils';
@@ -131,16 +129,23 @@ function SectionShell({
 
 export default function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [loaded, setLoaded] = useState(false);
   const [sending, setSending] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [lightboxItem, setLightboxItem] = useState<(typeof galleryItems)[number] | null>(null);
+  const closeLightboxRef = useRef<HTMLButtonElement>(null);
   const year = useMemo(() => new Date().getFullYear(), []);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setLoaded(true), 2600);
-    return () => window.clearTimeout(timer);
-  }, []);
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMobileOpen(false);
+    };
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [mobileOpen]);
 
   useEffect(() => {
     if (!lightboxItem) return;
@@ -148,6 +153,7 @@ export default function App() {
       if (event.key === 'Escape') setLightboxItem(null);
     };
     document.body.style.overflow = 'hidden';
+    window.requestAnimationFrame(() => closeLightboxRef.current?.focus());
     window.addEventListener('keydown', onKeyDown);
     return () => {
       document.body.style.overflow = '';
@@ -171,6 +177,8 @@ export default function App() {
           email: formData.get('email'),
           mobile: formData.get('mobile'),
           venue: formData.get('venue'),
+          location: formData.get('location'),
+          venueType: formData.get('venueType'),
           enquiryType: formData.get('enquiryType'),
           message: formData.get('message'),
           website: formData.get('website'),
@@ -190,8 +198,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#05060a] text-white">
-      <Loader visible={!loaded} />
-
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[#05060a]">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#05060a_0%,#090b13_28%,#070911_58%,#0a0d15_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(255,0,146,0.08),transparent_32%,rgba(75,214,255,0.06)_60%,rgba(142,40,222,0.07)_100%)]" />
@@ -200,9 +206,9 @@ export default function App() {
 
       <header className="sticky top-0 z-50 border-b border-white/8 bg-[#06070b]/72 backdrop-blur-xl">
         <div className="mx-auto flex max-w-[94rem] items-center justify-between px-5 py-4 lg:px-8">
-          <button onClick={() => scrollToId('home')} className="flex items-center gap-4 text-left">
+          <a href="#home" className="flex items-center gap-4 text-left">
             <img src="/assets/hv/logo-primary.png" alt="HIGH VOLTAGE GAMING SYSTEMS" className="h-10 w-auto sm:h-11" />
-          </button>
+          </a>
 
           <nav className="hidden items-center gap-2 lg:flex">
             {navItems.map((item) => (
@@ -224,6 +230,8 @@ export default function App() {
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 lg:hidden"
             onClick={() => setMobileOpen((value) => !value)}
             aria-label="Toggle navigation"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
           >
             {mobileOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -232,6 +240,7 @@ export default function App() {
         <AnimatePresence>
           {mobileOpen ? (
             <motion.div
+              id="mobile-navigation"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
@@ -275,7 +284,7 @@ export default function App() {
             <div className="mx-auto grid w-full max-w-[94rem] gap-10 lg:grid-cols-[minmax(0,0.96fr)_minmax(22rem,0.52fr)] lg:items-end">
               <motion.div
                 initial={{ opacity: 0, y: 26 }}
-                animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 26 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="max-w-5xl"
               >
@@ -307,7 +316,7 @@ export default function App() {
 
               <motion.div
                 initial={{ opacity: 0, x: 26 }}
-                animate={{ opacity: loaded ? 1 : 0, x: loaded ? 0 : 26 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.78, delay: 0.42 }}
                 className="hidden lg:block"
               >
@@ -674,24 +683,6 @@ export default function App() {
           </div>
         </SectionShell>
 
-        <SectionShell tone="mixed">
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <SectionHeading
-              eyebrow="Venue experience"
-              title="Trusted by regional hospitality, accommodation and social venues."
-              text="High Voltage Gaming Systems has worked with pubs, hotels, resorts and family venues across the border, Murray and Riverina regions."
-            />
-            <div className="grid gap-3 sm:grid-cols-2">
-              {venueProof.map((venue) => (
-                <GlowCard key={`${venue.title}-${venue.location}`} className="border-cyan-300/12 bg-[linear-gradient(180deg,rgba(9,18,25,0.9),rgba(6,8,12,0.98))] p-5">
-                  <h3 className="text-lg font-semibold text-white">{venue.title}</h3>
-                  <p className="mt-2 text-sm uppercase tracking-[0.16em] text-slate-400">{venue.location}</p>
-                </GlowCard>
-              ))}
-            </div>
-          </div>
-        </SectionShell>
-
         <SectionShell tone="violet">
           <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
             <SectionHeading
@@ -774,21 +765,37 @@ export default function App() {
                 <div className="grid gap-5 sm:grid-cols-2">
                   <label className="grid gap-2 text-sm text-slate-300">
                     Name
-                    <input name="name" required className="rounded-2xl border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50" />
+                    <input name="name" required maxLength={100} autoComplete="name" className="rounded-2xl border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50" />
                   </label>
                   <label className="grid gap-2 text-sm text-slate-300">
                     Email
-                    <input name="email" type="email" required className="rounded-2xl border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50" />
+                    <input name="email" type="email" required maxLength={254} autoComplete="email" className="rounded-2xl border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50" />
                   </label>
                 </div>
                 <div className="grid gap-5 sm:grid-cols-2">
                   <label className="grid gap-2 text-sm text-slate-300">
                     Mobile
-                    <input name="mobile" className="rounded-2xl border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50" />
+                    <input name="mobile" type="tel" maxLength={30} autoComplete="tel" className="rounded-2xl border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50" />
                   </label>
                   <label className="grid gap-2 text-sm text-slate-300">
                     Venue / Business
-                    <input name="venue" className="rounded-2xl border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50" />
+                    <input name="venue" maxLength={120} autoComplete="organization" className="rounded-2xl border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50" />
+                  </label>
+                </div>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <label className="grid gap-2 text-sm text-slate-300">
+                    Location / postcode
+                    <input name="location" maxLength={100} autoComplete="postal-code" className="rounded-2xl border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50" />
+                  </label>
+                  <label className="grid gap-2 text-sm text-slate-300">
+                    Venue type
+                    <select name="venueType" className="rounded-2xl border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50">
+                      <option>Hotel or pub</option>
+                      <option>Club or social venue</option>
+                      <option>Holiday park or accommodation</option>
+                      <option>Tourism or entertainment venue</option>
+                      <option>Other business</option>
+                    </select>
                   </label>
                 </div>
                 <label className="grid gap-2 text-sm text-slate-300">
@@ -801,7 +808,7 @@ export default function App() {
                 </label>
                 <label className="grid gap-2 text-sm text-slate-300">
                   Message
-                  <textarea name="message" required rows={6} className="rounded-[24px] border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50" />
+                  <textarea name="message" required maxLength={3000} rows={6} className="rounded-[24px] border border-white/10 bg-[#0b0f18] px-4 py-3 text-white outline-none transition focus:border-[#ff0092]/50" />
                 </label>
 
                 <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -809,7 +816,7 @@ export default function App() {
                     {sending ? 'Sending…' : 'Send enquiry'}
                     <ArrowRight size={16} />
                   </PillButton>
-                  {message ? <p className="text-sm text-slate-300">{message}</p> : null}
+                  {message ? <p role="status" aria-live="polite" className="text-sm text-slate-300">{message}</p> : null}
                 </div>
               </form>
             </GlowCard>
@@ -826,6 +833,9 @@ export default function App() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[90] flex items-center justify-center bg-black/82 p-4 backdrop-blur-md sm:p-6"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Gallery image"
             onClick={() => setLightboxItem(null)}
           >
             <motion.div
@@ -837,6 +847,7 @@ export default function App() {
               onClick={(event) => event.stopPropagation()}
             >
               <button
+                ref={closeLightboxRef}
                 type="button"
                 aria-label="Close gallery image"
                 onClick={() => setLightboxItem(null)}
