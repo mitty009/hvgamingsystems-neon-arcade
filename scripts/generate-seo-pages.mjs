@@ -44,16 +44,6 @@ function optionalAreaGroups(page) {
         </section>`;
 }
 
-function optionalVenueExamples(page) {
-  if (!page.venueExamples?.length) return '';
-
-  return `<section class="card" aria-label="Venue examples">
-          <h2>Venue experience</h2>
-          <p>Examples include regional hotels, pubs, resorts and hospitality venues where amusement equipment, pool tables or games-room attractions are part of the venue experience.</p>
-          <div class="links">${page.venueExamples.map((venue) => `<span>${escapeHtml(venue)}</span>`).join('\n')}</div>
-        </section>`;
-}
-
 function optionalSearchTerms(page) {
   if (!page.alternateTerms?.length) return '';
 
@@ -289,8 +279,6 @@ function pageTemplate(page) {
         </section>
 
         ${optionalAreaGroups(page)}
-
-        ${optionalVenueExamples(page)}
 
         ${optionalSearchTerms(page)}
 
