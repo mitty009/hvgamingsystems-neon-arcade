@@ -187,7 +187,7 @@ function pageTemplate(page) {
         radial-gradient(circle at 12% 18%, rgba(255,0,146,0.18), transparent 30%),
         radial-gradient(circle at 86% 12%, rgba(75,214,255,0.16), transparent 28%),
         #05060a; }
-      .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+      .wrap { width: min(1440px, calc(100% - 64px)); margin: 0 auto; }
       .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0; }
       .logo { height: 48px; width: auto; }
       .nav-links { display: flex; flex-wrap: wrap; gap: 18px; color: rgba(255,255,255,0.72); font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
@@ -216,7 +216,7 @@ function pageTemplate(page) {
       .links a, .links span { border: 1px solid rgba(75,214,255,.24); border-radius: 999px; background: rgba(75,214,255,.09); padding: 10px 13px; color: #d9f8ff; font-size: 13px; font-weight: 700; text-decoration: none; }
       footer { border-top: 1px solid rgba(255,255,255,.08); margin-top: 44px; padding: 28px 0 34px; color: rgba(148,163,184,.9); font-size: 13px; }
       @media (min-width: 920px) { .hero { grid-template-columns: 1.03fr .97fr; padding: 76px 0 56px; } }
-      @media (max-width: 780px) { .nav { align-items: flex-start; flex-direction: column; } .three, .two { grid-template-columns: 1fr; } .wrap { width: min(100% - 28px, 1120px); } }
+      @media (max-width: 780px) { .nav { align-items: flex-start; flex-direction: column; } .three, .two { grid-template-columns: 1fr; } .wrap { width: calc(100% - 28px); } }
     </style>
   </head>
   <body>
