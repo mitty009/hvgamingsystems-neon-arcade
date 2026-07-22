@@ -112,9 +112,9 @@ function SectionShell({
     dark: 'section-band section-band--dark',
   };
   const widths = {
-    standard: 'max-w-[80rem]',
-    wide: 'max-w-[96rem]',
-    narrow: 'max-w-[52rem]',
+    standard: 'max-w-[96rem]',
+    wide: 'max-w-[110rem]',
+    narrow: 'max-w-[80rem]',
   };
   const spacings = {
     connected: 'py-[clamp(2.5rem,3vw,3.75rem)]',
@@ -215,7 +215,7 @@ export default function App() {
       </div>
 
       <header className="sticky top-0 z-50 border-b border-white/8 bg-[#06070b]/72 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-[96rem] items-center justify-between px-5 py-4 sm:px-6 lg:px-8 2xl:px-12">
+        <div className="mx-auto flex max-w-[110rem] items-center justify-between px-5 py-4 sm:px-6 lg:px-8 2xl:px-12">
           <a href="#home" className="flex items-center gap-4 text-left">
             <img src="/assets/hv/logo-primary.png" alt="HIGH VOLTAGE GAMING SYSTEMS" className="h-10 w-auto sm:h-11" />
           </a>
@@ -291,7 +291,7 @@ export default function App() {
           <div className="scanline-overlay absolute inset-0" />
 
           <div className="relative flex min-h-[42rem] items-center px-5 pb-24 pt-24 sm:px-6 sm:pt-28 lg:min-h-[clamp(42rem,78svh,52rem)] lg:px-8 2xl:px-12">
-            <div className="mx-auto grid w-full max-w-[96rem] gap-8 lg:grid-cols-[minmax(0,1.16fr)_minmax(22rem,0.64fr)] lg:items-end 2xl:grid-cols-[minmax(0,1.2fr)_minmax(28rem,0.8fr)]">
+            <div className="mx-auto grid w-full max-w-[110rem] gap-8 lg:grid-cols-[minmax(0,1.16fr)_minmax(22rem,0.64fr)] lg:items-end 2xl:grid-cols-[minmax(0,1.2fr)_minmax(28rem,0.8fr)]">
               <motion.div
                 initial={{ opacity: 0, y: 26 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -901,7 +901,7 @@ export default function App() {
       </AnimatePresence>
 
       <footer className="relative z-10 border-t border-white/8 bg-[#06070b]/90">
-        <div className="mx-auto grid max-w-[80rem] gap-8 px-6 py-10 lg:grid-cols-[1fr_auto] lg:px-8 2xl:px-12">
+        <div className="mx-auto grid max-w-[96rem] gap-8 px-6 py-10 lg:grid-cols-[1fr_auto] lg:px-8 2xl:px-12">
           <div>
             <img src="/assets/hv/logo-primary.png" alt="High Voltage Gaming Systems" className="h-12 w-auto" />
             <p className="mt-4 max-w-2xl text-[0.9375rem] leading-7 text-slate-300">{site.footerBlurb}</p>
