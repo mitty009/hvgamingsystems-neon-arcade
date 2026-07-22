@@ -17,6 +17,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: clip;
   font-family: var(--font-sans);
   background:
     linear-gradient(135deg, rgba(255, 0, 146, 0.12), transparent 24%),
