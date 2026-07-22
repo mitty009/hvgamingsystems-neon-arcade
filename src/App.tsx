@@ -452,7 +452,7 @@ export default function App() {
               title="The right attraction for the right part of the venue."
               text="Racing games, prize machines, pool tables and quick-play social games each do a different job. The final mix should match the audience, footprint and atmosphere you want to create."
             />
-            <div className="grid gap-3 rounded-[24px] border border-[#a05cff]/24 bg-[linear-gradient(180deg,rgba(35,20,58,0.9),rgba(12,10,24,0.96))] p-4 shadow-[0_0_90px_rgba(142,40,222,0.16)] backdrop-blur-xl sm:grid-cols-4 lg:grid-cols-2 2xl:grid-cols-4">
+            <div className="grid gap-3 rounded-[24px] border border-[#a05cff]/24 bg-[linear-gradient(180deg,rgba(35,20,58,0.9),rgba(12,10,24,0.96))] p-4 shadow-[0_0_90px_rgba(142,40,222,0.16)] backdrop-blur-xl sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
               {stats.map((item) => (
                 <div key={item.label} className="rounded-[18px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03))] px-4 py-4 text-center">
                   <p className="font-display text-xl uppercase tracking-[0.12em] text-white">{item.value}</p>
@@ -520,7 +520,7 @@ export default function App() {
               title="A clear path from first conversation to working machines."
               text="Talk through the room, choose the mix, install cleanly and keep the equipment supported after it goes live."
             />
-            <div className="grid gap-3 sm:grid-cols-2 2xl:grid-cols-4">
+            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
               {process.map((step, index) => (
                 <div key={step.title} className="rounded-[18px] border border-white/8 bg-[#0d111a]/80 p-4">
                   <div className="flex items-start gap-3">
@@ -657,7 +657,7 @@ export default function App() {
                 <img src="/assets/hv/veteran-badge.png" alt="Australian Veteran Owned Business" className="mx-auto h-auto w-full max-w-[28rem]" />
               </div>
             </div>
-            <div className="grid gap-7 2xl:grid-cols-[0.92fr_1.08fr] 2xl:items-start">
+            <div className="grid gap-7 xl:grid-cols-[0.92fr_1.08fr] xl:items-start">
               <SectionHeading
                 eyebrow="About"
                 title={site.aboutTitle}
@@ -695,7 +695,7 @@ export default function App() {
               title="Start with the service that matches your venue."
               text="Browse focused options for arcade machines, pool tables, leasing, prize attractions and maintenance support across Albury-Wodonga, the Murray and the Riverina."
             />
-            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
               {seoPages.map((page) => (
                 <a
                   key={page.slug}
