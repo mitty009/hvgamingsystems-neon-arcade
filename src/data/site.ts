@@ -1,10 +1,6 @@
 import {
-  Cable,
-  Crown,
   Gamepad2,
   HandCoins,
-  MapPin,
-  ShieldCheck,
   Trophy,
   Wrench,
   type LucideIcon,
@@ -114,33 +110,6 @@ export const services: Service[] = [
     description:
       'Servicing from qualified technical people who understand that downtime, presentation and reliability matter.',
     icon: Wrench,
-  },
-];
-
-export const differentiators: Service[] = [
-  {
-    title: 'Veteran-owned values',
-    description:
-      'Clear communication, accountability and follow-through from first enquiry through to ongoing support.',
-    icon: ShieldCheck,
-  },
-  {
-    title: 'Regional specialists',
-    description:
-      'Focused support across the Murray / Riverina region with a strong understanding of local venues and operators.',
-    icon: MapPin,
-  },
-  {
-    title: 'Qualified technical team',
-    description:
-      'Electronic technicians and engineers give each placement real backup beyond delivery and setup.',
-    icon: Cable,
-  },
-  {
-    title: 'Entertainment that earns its place',
-    description:
-      'Every machine should justify the floor space by adding appeal, dwell time or repeat play.',
-    icon: Crown,
   },
 ];
 

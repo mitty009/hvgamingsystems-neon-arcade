@@ -5,7 +5,6 @@ import { GlowCard } from './components/GlowCard';
 import { SectionHeading } from './components/SectionHeading';
 import {
   categories,
-  differentiators,
   enquiryTypes,
   faqs,
   galleryStories,
@@ -19,7 +18,6 @@ import {
   stats,
   venueOutcomes,
 } from './data/site';
-import seoPages from './data/seo-pages.json';
 import { cn, scrollToId } from './lib/utils';
 
 const navItems = [
@@ -436,6 +434,12 @@ export default function App() {
               <h3 className="mt-2 font-display text-4xl uppercase leading-[0.92] tracking-[0.05em] text-white">
                 Zero-upfront-cost options for suitable venues.
               </h3>
+              <a
+                href="/zero-upfront-arcade-machines/"
+                className="mt-4 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.12em] text-cyan-100 transition hover:text-white"
+              >
+                How placement works <ArrowRight size={15} />
+              </a>
             </div>
             <div className="grid gap-3 border-t border-white/10 bg-black/24 p-5 sm:grid-cols-3 lg:border-l lg:border-t-0 lg:p-6">
               {['Assess the room', 'Match the machines', 'Support the install'].map((item, index) => (
@@ -487,47 +491,18 @@ export default function App() {
           </div>
         </SectionShell>
 
-        <SectionShell tone="mixed" width="wide" spacing="connected">
-          <div className="grid gap-5 lg:grid-cols-[0.78fr_1.22fr]">
-            <GlowCard className="min-h-[22rem]" padding="none" tone="pink">
-              <div className="relative h-full">
-                <img src="/assets/hv/motorbike-racers.jpg" alt="Motorbike arcade racing machines" className="h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,10,16,0.12),rgba(8,10,16,0.84))]" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#ff7dc5]">Why High Voltage</p>
-                  <p className="mt-3 max-w-md text-2xl font-semibold leading-tight text-white">
-                    Venue-first advice, qualified technical support and machines chosen to earn their floor space.
-                  </p>
-                </div>
-              </div>
-            </GlowCard>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {differentiators.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <GlowCard key={item.title} padding="compact" tone="violet">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#8e28de]/28 bg-[#8e28de]/14 text-[#f1d8ff]">
-                      <Icon size={20} />
-                    </div>
-                    <h3 className="mt-4 text-xl font-semibold text-white">{item.title}</h3>
-                    <p className="mt-2 text-[0.9375rem] leading-7 text-slate-200">{item.description}</p>
-                  </GlowCard>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="mt-6 grid gap-6 rounded-[24px] border border-white/8 bg-white/[0.04] p-6 shadow-[0_20px_90px_rgba(0,0,0,0.42)] backdrop-blur-xl lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:p-8">
+        <SectionShell tone="mixed" width="wide" spacing="standard">
+          <div className="grid gap-6 border-y border-white/8 py-7 lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:py-9">
             <SectionHeading
               eyebrow="Process"
               title="A clear path from first conversation to working machines."
-              text="Talk through the room, choose the mix, install cleanly and keep the equipment supported after it goes live."
+              text="Venue-first advice, a clean installation and qualified technical support—without adding another layer of generic promises to the page."
             />
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
               {process.map((step, index) => (
-                <div key={step.title} className="rounded-[18px] border border-white/8 bg-[#0d111a]/80 p-4">
+                <div key={step.title} className="border-l border-cyan-300/20 py-2 pl-4">
                   <div className="flex items-start gap-3">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-cyan-300/20 bg-cyan-300/10 font-display text-base text-cyan-300">
+                    <div className="font-display text-xl text-cyan-300">
                       0{index + 1}
                     </div>
                     <div>
@@ -687,31 +662,6 @@ export default function App() {
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
-        </SectionShell>
-
-        <SectionShell tone="violet" spacing="connected">
-          <div className="grid gap-8 lg:grid-cols-[0.68fr_1.32fr] lg:items-start">
-            <SectionHeading
-              eyebrow="Venue solutions"
-              title="Start with the service that matches your venue."
-              text="Browse focused options for arcade machines, pool tables, leasing, prize attractions and maintenance support across Albury-Wodonga, the Murray and the Riverina."
-            />
-            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-              {seoPages.map((page) => (
-                <a
-                  key={page.slug}
-                  href={`/${page.slug}/`}
-                  className="group flex min-h-24 items-center justify-between gap-3 rounded-[18px] border border-white/10 bg-[linear-gradient(180deg,rgba(20,17,34,0.88),rgba(7,9,15,0.98))] p-4 shadow-[0_18px_62px_rgba(0,0,0,0.3)] transition duration-300 hover:-translate-y-1 hover:border-[#a05cff]/34 hover:bg-[linear-gradient(180deg,rgba(38,24,62,0.9),rgba(7,9,15,0.98))]"
-                >
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#ff8ccf]">{page.eyebrow}</p>
-                    <h3 className="mt-2 text-base font-semibold leading-snug text-white transition group-hover:text-cyan-100">{page.shortTitle}</h3>
-                  </div>
-                  <ArrowRight size={16} className="shrink-0 text-cyan-200/70 transition group-hover:translate-x-1 group-hover:text-cyan-100" />
-                </a>
-              ))}
             </div>
           </div>
         </SectionShell>
